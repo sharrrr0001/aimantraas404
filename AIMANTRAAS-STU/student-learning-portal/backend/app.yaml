@@ -1,0 +1,46 @@
+# Google App Engine Configuration
+# ================================
+# This file is used for deploying to Google App Engine
+# https://cloud.google.com/appengine
+
+runtime: python311
+env: standard
+
+instance_class: F1  # Free tier class, change to F2+ for more memory
+
+runtime_config:
+  python_version: 3.11
+
+# Service account to use (optional)
+# service_account: your-service-account@project.iam.gserviceaccount.com
+
+entrypoint: gunicorn --bind :$PORT wsgi:application
+
+# Environment variables
+env_variables:
+  DEBUG_MODE: 'False'
+  APP_NAME: 'AI Mantraas Student Portal'
+
+# Scaling configuration
+automatic_scaling:
+  target_cpu_utilization: 0.65
+  min_instances: 1
+  max_instances: 10
+
+# Resources (for standard environment)
+resources:
+  cpu: 1
+  memory_gb: 0.5
+  disk_size_gb: 10
+
+# Health check
+health_check:
+  enable_health_check: True
+  check_interval_sec: 30
+  timeout_sec: 4
+  unhealthy_threshold: 3
+  healthy_threshold: 2
+
+# Manual scaling (uncomment if needed)
+# manual_scaling:
+#   instances: 1

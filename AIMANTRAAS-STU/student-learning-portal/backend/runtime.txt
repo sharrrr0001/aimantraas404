@@ -1,0 +1,6 @@
+# Runtime Specification
+# =====================
+# This file specifies the Python runtime version for deployment platforms
+# like Heroku, Render, etc.
+
+python-3.11.0

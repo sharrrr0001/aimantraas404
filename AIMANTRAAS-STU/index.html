@@ -1,0 +1,3406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Mantraas — Transform Your Career with AI Agents</title>
+    <link rel="icon" type="image/png" href="bglogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bg: '#050505',
+                        'bg-secondary': '#0A0A0A',
+                        cyan: {
+                            DEFAULT: '#00D4FF',
+                            glow: 'rgba(0, 212, 255, 0.5)',
+                        },
+                        purple: {
+                            DEFAULT: '#8B5CF6',
+                            glow: 'rgba(139, 92, 246, 0.5)',
+                        },
+                        slate: {
+                            DEFAULT: '#A1A1AA',
+                            dark: '#71717A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Sora', 'sans-serif'],
+                    },
+                    animation: {
+                        'gradient': 'gradient 8s linear infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        gradient: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(0, 212, 255, 0.3)' },
+                            '50%': { boxShadow: '0 0 40px rgba(0, 212, 255, 0.6)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #A1A1AA;
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        /* Prevent horizontal scroll on mobile */
+        html, body {
+            overflow-x: hidden;
+        }
+
+        /* Mobile responsive fixes */
+        @media (max-width: 768px) {
+            /* Reduce padding on mobile */
+            .section {
+                padding: 40px 16px !important;
+            }
+            
+            /* Ensure grids stack on mobile */
+            .grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Reduce font sizes on mobile */
+            h1, h2, h3 {
+                font-size: 90% !important;
+            }
+            
+            /* Fix container overflow */
+            .container {
+                max-width: 100% !important;
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #27272A;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3F3F46;
+        }
+
+        /* Topic List Animation */
+        @keyframes itemFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes checkPop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-item {
+            opacity: 0;
+            animation: itemFadeIn 0.5s ease forwards;
+        }
+
+        .animate-check {
+            display: inline-block;
+            animation: checkPop 0.4s ease forwards;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #00D4FF 0%, #8B5CF6 25%, #00D4FF 50%, #8B5CF6 75%, #00D4FF 100%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-flow 4s ease infinite;
+        }
+
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Hero entrance animations */
+        .hero-badge {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: hero-slide-up 0.8s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        .hero-title {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: hero-slide-up 0.8s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        .hero-description {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: hero-slide-up 0.8s ease forwards;
+            animation-delay: 0.7s;
+        }
+
+        .hero-cta-row {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: hero-slide-up 0.8s ease forwards;
+            animation-delay: 0.9s;
+        }
+
+        .hero-stats {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: hero-slide-up 0.8s ease forwards;
+            animation-delay: 1.1s;
+        }
+
+        @keyframes hero-slide-up {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Button hover effects */
+        .btn-glow {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform, box-shadow;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.5), 0 0 80px rgba(0, 212, 255, 0.2);
+        }
+
+        .btn-glow:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Nav link hover */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00D4FF;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mesh-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse 80% 50% at 20% 40%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse 50% 30% at 50% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+                #050505;
+        }
+
+        .glass {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(10, 10, 10, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .glow-cyan {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3), 0 0 60px rgba(0, 212, 255, 0.1);
+        }
+
+        .glow-cyan-hover:hover {
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.5), 0 0 80px rgba(0, 212, 255, 0.2);
+        }
+
+        .inner-glow {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .inner-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        }
+
+        /* Toggle join button animation */
+        .toggle-join-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .toggle-join-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .toggle-join-btn:hover::before {
+            left: 100%;
+        }
+
+        .toggle-arrow {
+            transition: transform 0.3s ease, margin-left 0.3s ease;
+        }
+
+        .toggle-join-btn.active .toggle-arrow {
+            transform: rotate(90deg);
+        }
+
+        .toggle-content {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .toggle-content.expanded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .join-text {
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-join-btn:active .join-text {
+            transform: scale(0.95);
+        }
+
+        gap-6
+
+        .branch-line {
+            stroke-dasharray: 200;
+            stroke-dashoffset: 200;
+            animation: drawBranch 2s ease forwards;
+            animation-delay: var(--delay, 0s);
+        }
+
+        @keyframes drawBranch {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* AI Skill Gap Section - Branch Animation Styles */
+        .ai-opportunity-node {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .ai-opportunity-node.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .branch-path {
+            transition: stroke-dashoffset 1.5s ease-in-out;
+        }
+
+        .connection-dots circle {
+            transition: opacity 0.5s ease;
+        }
+
+        .feature-card {
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Mobile responsive adjustments for skill gap section */
+        @media (max-width: 768px) {
+            #skillgap .branch-path {
+                stroke-width: 2;
+            }
+            
+            #skillgap .grid-cols-3 {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            #skillgap .feature-card {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .network-node {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00D4FF;
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: nodeFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes nodeFloat {
+            0%, 100% { transform: translate(0, 0); opacity: 0.4; }
+            50% { transform: translate(10px, -10px); opacity: 0.8; }
+        }
+
+        .popup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Fade in - element fades into view while scrolling */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            will-change: opacity;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+        }
+
+        /* Scale in animation */
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: opacity, transform;
+        }
+
+        .scale-in.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Blur in animation */
+        .blur-in {
+            opacity: 0;
+            filter: blur(10px);
+            transform: scale(1.1);
+            transition: all 0.8s ease;
+            will-change: opacity, filter, transform;
+        }
+
+        .blur-in.active {
+            opacity: 1;
+            filter: blur(0);
+            transform: scale(1);
+        }
+
+        /* Rotate in animation */
+        .rotate-in {
+            opacity: 0;
+            transform: rotate(-5deg) translateY(30px);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            will-change: opacity, transform;
+        }
+
+        .rotate-in.active {
+            opacity: 1;
+            transform: rotate(0) translateY(0);
+        }
+
+        /* Zoom in from bottom */
+        .zoom-in {
+            opacity: 0;
+            transform: translateY(50px) scale(0.8);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .zoom-in.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Split reveal - text lines reveal one by one */
+        .split-reveal > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .split-reveal.active > *:nth-child(1) { transition-delay: 0.1s; }
+        .split-reveal.active > *:nth-child(2) { transition-delay: 0.2s; }
+        .split-reveal.active > *:nth-child(3) { transition-delay: 0.3s; }
+        .split-reveal.active > *:nth-child(4) { transition-delay: 0.4s; }
+        .split-reveal.active > *:nth-child(5) { transition-delay: 0.5s; }
+
+        .split-reveal.active > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glow pulse animation for CTAs */
+        @keyframes glow-pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(0, 212, 255, 0.6), 0 0 60px rgba(0, 212, 255, 0.3); }
+        }
+
+        .glow-pulse {
+            animation: glow-pulse 2s ease-in-out infinite;
+        }
+
+        /* Float animation */
+        @keyframes float-gentle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float-gentle {
+            animation: float-gentle 3s ease-in-out infinite;
+        }
+
+        /* Stagger children animation */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+        }
+
+        .stagger-children.active > *:nth-child(1) { transition-delay: 0.05s; }
+        .stagger-children.active > *:nth-child(2) { transition-delay: 0.1s; }
+        .stagger-children.active > *:nth-child(3) { transition-delay: 0.15s; }
+        .stagger-children.active > *:nth-child(4) { transition-delay: 0.2s; }
+        .stagger-children.active > *:nth-child(5) { transition-delay: 0.25s; }
+        .stagger-children.active > *:nth-child(6) { transition-delay: 0.3s; }
+
+        .stagger-children.active > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tight-tracking {
+            letter-spacing: -0.03em;
+        }
+
+        /* Enhanced CSS Animations */
+        
+        /* Smooth parallax effect */
+        .parallax-bg {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+        
+        /* 3D tilt effect for cards */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease;
+        }
+        
+        .tilt-card:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(10px);
+        }
+        
+        /* Smooth text reveal */
+        .text-reveal {
+            clip-path: inset(0 0 100% 0);
+            transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        
+        .text-reveal.visible {
+            clip-path: inset(0 0 0 0);
+        }
+        
+        /* Magnetic button effect */
+        .magnetic-btn {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .magnetic-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Ripple effect */
+        .ripple {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 50%;
+            left: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s;
+        }
+        
+        .ripple:active::after {
+            transform: translate(-50%, -50%) scale(2);
+        }
+        
+        /* Typing animation */
+        .typing-effect {
+            overflow: hidden;
+            border-right: 2px solid #00D4FF;
+            white-space: nowrap;
+            animation: typing 3s steps(40) 1s forwards, blink 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #00D4FF;
+            border-radius: 50%;
+            opacity: 0;
+            animation: particle-float 4s ease-in-out infinite;
+        }
+        
+        @keyframes particle-float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            25% { opacity: 0.8; }
+            50% { transform: translateY(-30px) translateX(15px); opacity: 0.4; }
+            75% { opacity: 0.6; }
+        }
+        
+        /* Counter animation */
+        .counter {
+            display: inline-block;
+        }
+        
+        /* Staggered fade in */
+        .stagger-fade > * {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: stagger-fade-in 0.6s ease forwards;
+        }
+        
+        @keyframes stagger-fade-in {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .stagger-fade > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger-fade > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger-fade > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger-fade > *:nth-child(4) { animation-delay: 0.4s; }
+        .stagger-fade > *:nth-child(5) { animation-delay: 0.5s; }
+
+        /* ===== ENHANCED CSS ANIMATIONS ===== */
+
+        /* Smooth page load animation */
+        @keyframes pageLoad {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .page-load {
+            animation: pageLoad 0.5s ease-out forwards;
+        }
+
+        /* Bounce in animation */
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .bounce-in {
+            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        /* Elastic slide up */
+        @keyframes elasticSlideUp {
+            0% { opacity: 0; transform: translateY(60px) scale(0.9); }
+            60% { opacity: 1; transform: translateY(-10px) scale(1.02); }
+            80% { transform: translateY(5px) scale(0.98); }
+            100% { transform: translateY(0) scale(1); }
+        }
+
+        .elastic-slide-up {
+            animation: elasticSlideUp 0.9s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
+        }
+
+        /* Shimmer effect */
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        /* Breathing glow */
+        @keyframes breathingGlow {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(0, 212, 255, 0.3),
+                            0 0 40px rgba(0, 212, 255, 0.1),
+                            inset 0 0 20px rgba(0, 212, 255, 0.05);
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(0, 212, 255, 0.5),
+                            0 0 60px rgba(0, 212, 255, 0.2),
+                            inset 0 0 30px rgba(0, 212, 255, 0.1);
+            }
+        }
+
+        .breathing-glow {
+            animation: breathingGlow 3s ease-in-out infinite;
+        }
+
+        /* Orbiting dots */
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(30px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(30px) rotate(-360deg); }
+        }
+
+        .orbit-container {
+            position: relative;
+        }
+
+        .orbit-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #00D4FF;
+            border-radius: 50%;
+            animation: orbit 3s linear infinite;
+        }
+
+        /* Wavy animation */
+        @keyframes wave {
+            0%, 100% { transform: translateY(0); }
+            25% { transform: translateY(-5px); }
+            75% { transform: translateY(5px); }
+        }
+
+        .wave-animate {
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        /* Pulse scale */
+        @keyframes pulseScale {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .pulse-scale {
+            animation: pulseScale 2s ease-in-out infinite;
+        }
+
+        /* Slide in from right */
+        @keyframes slideInRight {
+            0% { opacity: 0; transform: translateX(50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.6s ease-out forwards;
+        }
+
+        /* Slide in from left */
+        @keyframes slideInLeft {
+            0% { opacity: 0; transform: translateX(-50px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.6s ease-out forwards;
+        }
+
+        /* Neon flicker */
+        @keyframes neonFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 10px #00D4FF, 0 0 20px #00D4FF, 0 0 40px #00D4FF;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        .neon-flicker {
+            animation: neonFlicker 2s infinite;
+        }
+
+        /* Liquid morph */
+        @keyframes liquidMorph {
+            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            50% { border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%; }
+            75% { border-radius: 60% 40% 60% 30% / 70% 30% 50% 60%; }
+        }
+
+        .liquid-morph {
+            animation: liquidMorph 8s ease-in-out infinite;
+        }
+
+        /* Gradient border animation */
+        @keyframes gradientBorder {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(#0A0A0A, #0A0A0A) padding-box,
+                        linear-gradient(90deg, #00D4FF, #8B5CF6, #00D4FF) border-box;
+            border: 2px solid transparent;
+            background-size: 200% 200%;
+            animation: gradientBorder 3s ease infinite;
+        }
+
+        /* Enhanced hover lift with shadow */
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2),
+                        0 0 60px rgba(0, 212, 255, 0.1);
+        }
+
+        /* Skew animation on hover */
+        .skew-hover {
+            transition: transform 0.3s ease;
+        }
+
+        .skew-hover:hover {
+            transform: skewX(-5deg);
+        }
+
+        /* Glow trail effect */
+        .glow-trail {
+            position: relative;
+        }
+
+        .glow-trail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .glow-trail:hover::before {
+            left: 100%;
+        }
+
+        /* Animated underline */
+        .animated-underline {
+            position: relative;
+        }
+
+        .animated-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #00D4FF, #8B5CF6);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+
+        .animated-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Spinning loader */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .spin {
+            animation: spin 1s linear infinite;
+        }
+
+        /* Bounce */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .bounce {
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        /* Rubber band */
+        @keyframes rubberBand {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.25, 0.75); }
+            40% { transform: scale(0.75, 1.25); }
+            50% { transform: scale(1.15, 0.85); }
+            65% { transform: scale(0.95, 1.05); }
+            75% { transform: scale(1.05, 0.95); }
+            100% { transform: scale(1); }
+        }
+
+        .rubber-band {
+            animation: rubberBand 1s ease;
+        }
+
+        /* Heartbeat */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
+        }
+
+        .heartbeat {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        /* Flash */
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .flash {
+            animation: flash 1s ease infinite;
+        }
+
+        /* CSS-only accordion expand */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .accordion-toggle:checked + .accordion-content {
+            max-height: 500px;
+        }
+
+        /* Number ticker animation */
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .count-up {
+            animation: countUp 0.5s ease forwards;
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-animate-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-animate-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-animate-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scroll-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger delay utilities */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+        .delay-500 { transition-delay: 0.5s; }
+        .delay-600 { transition-delay: 0.6s; }
+        .delay-700 { transition-delay: 0.7s; }
+        .delay-800 { transition-delay: 0.8s; }
+        .stagger-fade > *:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* Smooth scroll indicator */
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        /* Gradient border animation */
+        .gradient-border {
+            position: relative;
+            background: #0A0A0A;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(90deg, #00D4FF, #8B5CF6, #00D4FF);
+            background-size: 200% 100%;
+            animation: gradient-move 3s linear infinite;
+            z-index: -1;
+            border-radius: inherit;
+        }
+        
+        @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        
+        /* Enhanced hover lift */
+        .hover-lift {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 212, 255, 0.2);
+        }
+        
+        /* Shimmer effect */
+        .shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            100% { left: 100%; }
+        }
+        
+        /* Registration Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: linear-gradient(145deg, #0A0A0A, #111111);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 100px rgba(0, 212, 255, 0.1);
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+        
+        .modal-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .modal-header h2 {
+            font-family: 'Sora', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .modal-header p {
+            color: #A1A1AA;
+            font-size: 14px;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #A1A1AA;
+            margin-bottom: 8px;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        
+        .form-group input::placeholder {
+            color: #52525B;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #00D4FF;
+            box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23A1A1AA' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 18px;
+            cursor: pointer;
+        }
+        
+        .form-group select option {
+            background: #111111;
+            color: white;
+        }
+        
+        .form-group.error input,
+        .form-group.error select {
+            border-color: #EF4444;
+        }
+        
+        .form-group .error-message {
+            color: #EF4444;
+            font-size: 12px;
+            margin-top: 6px;
+            display: none;
+        }
+        
+        .form-group.error .error-message {
+            display: block;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        @media (max-width: 480px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #00D4FF, #8B5CF6);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #71717A;
+        }
+        
+        .form-footer a {
+            color: #00D4FF;
+            text-decoration: none;
+        }
+        
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Success state */
+        .form-success {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .form-success .success-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(139, 92, 246, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 40px;
+            animation: success-pulse 2s ease infinite;
+        }
+        
+        @keyframes success-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .form-success h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 24px;
+            color: white;
+            margin-bottom: 12px;
+        }
+        
+        .form-success p {
+            color: #A1A1AA;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 25s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Hero Background */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(to right, #050505 0%, transparent 30%),
+                url('bglogo.png') right center/70% no-repeat;
+            z-index: 0;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent 50%, #050505 100%);
+        }
+
+        /* Vertical date/time text */
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        /* Custom Cursor */
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #00D4FF;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background 0.3s;
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor.hover {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 212, 255, 0.2);
+            border-color: #8B5CF6;
+        }
+
+        .cursor-trail {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: #00D4FF;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99998;
+            transform: translate(-50%, -50%);
+            opacity: 0.6;
+            box-shadow: 0 0 10px #00D4FF, 0 0 20px #8B5CF6;
+            animation: cursor-pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes cursor-pulse {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.6;
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.5);
+                opacity: 0.3;
+            }
+        }
+
+        /* Cursor trail dots */
+        .cursor-dot {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            background: rgba(0, 212, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99997;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.5s ease;
+        }
+
+        /* Hide default cursor on desktop */
+        @media (min-width: 1024px) {
+            body {
+                cursor: none;
+            }
+            
+            a, button, .cursor-pointer {
+                cursor: none !important;
+            }
+        }
+        
+        /* Always show default cursor on mobile/touch devices */
+        @media (max-width: 1023px) {
+            .custom-cursor, .cursor-trail, .cursor-dot {
+                display: none !important;
+            }
+            
+            body {
+                cursor: auto !important;
+            }
+            
+            a, button, .cursor-pointer {
+                cursor: pointer !important;
+            }
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            /* Better mobile typography */
+            h1 {
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
+            }
+            
+            h2 {
+                font-size: 1.75rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            p {
+                font-size: 0.95rem !important;
+            }
+            
+            /* Mobile-friendly touch targets */
+            a, button {
+                min-height: 44px;
+                min-width: 44px;
+            }
+            
+            /* Better spacing on mobile */
+            section {
+                padding-top: 3rem;
+                padding-bottom: 3rem;
+            }
+            
+            /* Adjust hero for mobile */
+            .hero-bg {
+                background: 
+                    linear-gradient(to right, #050505 0%, transparent 50%),
+                    url('bglogo.png') center center/cover no-repeat !important;
+                opacity: 0.3;
+            }
+
+            #skillgap .branch-path {
+                stroke-width: 2;
+            }
+             
+            #skillgap .grid-cols-3 {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+             
+            #skillgap .feature-card {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#050505] text-slate-300 antialiased">
+    <!-- Mesh Gradient Background -->
+    <div class="mesh-gradient"></div>
+
+    <!-- Network Nodes Background -->
+    <div class="fixed inset-0 pointer-events-none z-0" id="networkBg"></div>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+    <div class="cursor-dot" id="cursorDot1"></div>
+    <div class="cursor-dot" id="cursorDot2"></div>
+    <div class="cursor-dot" id="cursorDot3"></div>
+    <div class="cursor-dot" id="cursorDot4"></div>
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="index.html" class="font-display font-bold text-xl tight-tracking">
+                <span class="gradient-text">AIMANTRAAS</span>
+            </a>
+            
+            <!-- Nav Links - Center Left -->
+            <nav class="hidden lg:flex items-center gap-8 ml-16">
+                <a href="for-business.html" class="text-sm text-slate-300 nav-link hover:text-white transition-colors">For Business</a>
+                <a href="#contact" class="text-sm text-slate-300 nav-link hover:text-white transition-colors">Contact Us</a>
+                <a href="#mentor" class="text-sm text-slate-300 nav-link hover:text-white transition-colors">Apply as Mentor</a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="lg:hidden p-2 text-white hover:text-cyan transition-colors" aria-label="Toggle menu" onclick="document.getElementById(&#39;mobileMenu&#39;).classList.toggle(&#39;hidden&#39;)">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+            
+            <!-- Right Side -->
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="#cta" class="bg-cyan text-black font-semibold px-5 py-2.5 rounded-xl text-sm hover:bg-cyan/90 transition-all glow-cyan-hover btn-glow" onclick="openModal(); return false;">
+                    Join Now
+                </a>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="lg:hidden hidden glass border-t border-white/10">
+            <div class="px-6 py-4 space-y-4">
+                <a href="for-business.html" class="block text-sm text-slate-300 hover:text-white transition-colors">For Business</a>
+                <a href="#contact" class="block text-sm text-slate-300 hover:text-white transition-colors">Contact Us</a>
+                <a href="#mentor" class="block text-sm text-slate-300 hover:text-white transition-colors">Apply as Mentor</a>
+                <a href="#cta" class="block bg-cyan text-black font-semibold px-5 py-2.5 rounded-xl text-sm text-center hover:bg-cyan/90 transition-all glow-cyan-hover" onclick="openModal(); return false;">
+                    Join Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Popup Modal -->
+      
+    <!-- Hero Section - Two Column Layout -->
+    <section class="relative min-h-screen flex items-center">
+        <!-- Background Image -->
+        <div class="hero-bg"></div>
+        
+        <!-- Content Container -->
+        <div class="relative z-10 max-w-7xl mx-auto px-6 py-32 w-full">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Left Column - Content -->
+                <div class="max-w-2xl">
+                    <!-- Large Bold Headline -->
+                    <h1 class="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl tight-tracking leading-[1.1] mb-8 text-white hero-title">
+                        Transform Your Career<br>
+                        <span class="gradient-text">with AI Agents</span>
+                    </h1>
+                    
+                    <!-- Short Supporting Description -->
+                    <p class="text-lg text-slate-400 mb-8 leading-relaxed hero-description">
+                        Master the skills to build powerful AI automation systems and agents that transform careers and solve real business problems.
+                    </p>
+                    
+                    <!-- CTA + Date/Time Row -->
+                    <div class="flex flex-wrap items-start gap-6 mb-8 hero-cta-row">
+                        <!-- CTA Button -->
+                        <a href="#cta" class="bg-cyan text-black font-semibold px-8 py-4 rounded-xl text-base hover:bg-cyan/90 transition-all glow-cyan-hover shrink-0">
+                            Join Waitlist
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Empty for Background -->
+                <div class="hidden lg:block"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Marquee -->
+    <section class="py-10 border-y border-white/5">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <div class="flex items-center gap-12 px-8">
+                    <span class="text-2xl font-display font-bold text-white/60">ChatGPT</span>
+                    <span class="text-2xl font-display font-bold text-white/60">Perplexity</span>
+                    <span class="text-2xl font-display font-bold text-white/60">AI Agents</span>
+                    <span class="text-2xl font-display font-bold text-white/60">n8n</span>
+                    <span class="text-2xl font-display font-bold text-white/60">Bubble</span>
+                    <span class="text-2xl font-display font-bold text-white/60">Baserow</span>
+                    <span class="text-2xl font-display font-bold text-white/60">Claude</span>
+                    <span class="text-2xl font-display font-bold text-white/60">Grok</span>
+                    <span class="text-2xl font-display font-bold text-white/60">Kimi K2</span>
+                    <span class="text-2xl font-display font-bold text-white/60">gamma</span>
+                    <span class="text-2xl font-display font-bold text-white/60">Google AI Studio</span>
+                </div>
+                <div class="flex items-center gap-12 px-8">
+                    <span class="text-2xl font-display font-bold text-white/60">ChatGPT</span>
+                    <span class="text-2xl font-display font-bold text-white/60">Perplexity</span>
+                    <span class="text-2xl font-display font-bold text-white/60">AI Agents</span>
+                    <span class="text-2xl font-display font-bold text-white/60">n8n</span>
+                    <span class="text-2xl font-display font-bold text-white/60">Bubble</span>
+                    <span class="text-2xl font-display font-bold text-white/60">Baserow</span>
+                    <span class="text-2xl font-display font-bold text-white/60">Claude</span>
+                    <span class="text-2xl font-display font-bold text-white/60">Grok</span>
+                    <span class="text-2xl font-display font-bold text-white/60">Kimi K2</span>
+                    <span class="text-2xl font-display font-bold text-white/60">gamma</span>
+                    <span class="text-2xl font-display font-bold text-white/60">Google AI Studio</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Skill Gap Section - Tree/Branch Structure -->
+    <section id="skillgap" class="py-24 px-6 relative overflow-hidden">
+
+        <!-- Background glow effects -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple/5 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto relative z-10">
+            <!-- Main Heading -->
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white tight-tracking mb-4">
+                    The <span class="gradient-text">AI Skill Gap</span>
+                </h2>
+                <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                    Millions use tools like ChatGPT but very few know how to combine AI tools to build automation systems, AI agents, and intelligent workflows.
+                </p>
+            </div>
+            
+            <!-- Tree/Branch Structure Container -->
+            <div class="relative">
+                <!-- SVG Branch Connectors -->
+                <svg class="absolute inset-0 w-full h-full pointer-events-none z-10" style="min-height: 500px;">
+                    <defs>
+                        <!-- Gradient for branches -->
+                        <linearGradient id="branchGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+                        </linearGradient>
+                        <!-- Glow filter -->
+                        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    
+                    <!-- Animated branch lines - will draw on scroll -->
+                    <g class="branch-paths" filter="url(#glow)">
+                        <!-- Left branch path - responsive adjustments -->
+                        <path class="branch-path branch-left" 
+                              d="M 50% 180 Q 30% 230 15% 320" 
+                              stroke="url(#branchGradient)" 
+                              stroke-width="2.5" 
+                              fill="none" 
+                              stroke-linecap="round"
+                              stroke-dasharray="400"
+                              stroke-dashoffset="400"/>
+                        
+                        <!-- Center branch path -->
+                        <path class="branch-path branch-center" 
+                              d="M 50% 180 L 50% 320" 
+                              stroke="url(#branchGradient)" 
+                              stroke-width="2.5" 
+                              fill="none" 
+                              stroke-linecap="round"
+                              stroke-dasharray="250"
+                              stroke-dashoffset="250"/>
+                        
+                        <!-- Right branch path -->
+                        <path class="branch-path branch-right" 
+                              d="M 50% 180 Q 70% 230 85% 320" 
+                              stroke="url(#branchGradient)" 
+                              stroke-width="2.5" 
+                              fill="none" 
+                              stroke-linecap="round"
+                              stroke-dasharray="400"
+                              stroke-dashoffset="400"/>
+                    </g>
+                    
+                    <!-- Connection dots at card edges -->
+                    <g class="connection-dots">
+                        <circle class="dot-left" cx="15%" cy="320" r="4" fill="#00D4FF" opacity="0"/>
+                        <circle class="dot-center" cx="50%" cy="320" r="4" fill="#00D4FF" opacity="0"/>
+                        <circle class="dot-right" cx="85%" cy="320" r="4" fill="#00D4FF" opacity="0"/>
+                    </g>
+                </svg>
+                
+                <!-- Central AI Opportunity Node -->
+                <div class="flex justify-center mb-8">
+                    <div class="ai-opportunity-node relative" style="opacity: 0; transform: scale(0.8);">
+                        <!-- Outer glow ring -->
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-cyan to-purple blur-xl opacity-40 animate-pulse-glow"></div>
+                        <!-- Node circle -->
+                        <div class="relative glass-card rounded-full px-8 py-4 border border-white/20 glow-cyan">
+                            <span class="font-display font-semibold text-lg text-white">AI Opportunity</span>
+                        </div>
+                        <!-- Bottom connector to branches -->
+                        <div class="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-full">
+                            <div class="w-0.5 h-8 bg-gradient-to-b from-cyan to-purple"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Three Feature Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
+                    <!-- Card 1: Companies Are Searching -->
+                    <div class="feature-card card-left transform translate-y-8 opacity-0 transition-all duration-700">
+                        <div class="glass-card rounded-2xl p-6 h-full border border-white/10 hover:border-cyan/30 transition-all duration-300 group inner-glow">
+                            <!-- Card glow on hover -->
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            
+                            <div class="relative z-10">
+                                
+                                <h3 class="font-display font-semibold text-white mb-3" style="font-size: 50px;">531%</h3>
+                                <ul class="text-slate-400 text-sm leading-relaxed space-y-3">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-cyan mt-1">▹</span>
+                                        <span>Growth in AI automation and engineering roles, as reported by LinkedIn.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-cyan mt-1">▹</span>
+                                        <span>Companies across industries are rapidly hiring AI specialists and automation builders</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2: Most People Only Use AI -->
+                    <div class="feature-card card-center transform translate-y-8 opacity-0 transition-all duration-700" style="transition-delay: 150ms;">
+                        <div class="glass-card rounded-2xl p-6 h-full border border-white/10 hover:border-purple-400/30 transition-all duration-300 group inner-glow">
+                            <!-- Card glow on hover -->
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            
+                            <div class="relative z-10">
+
+                                <h3 class="font-display font-semibold text-white mb-3" style="font-size: 50px;">1.4 million</h3>
+                                <ul class="text-slate-400 text-sm leading-relaxed space-y-3">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-purple-400 mt-1">▹</span>
+                                        <span>Shortage of AI automation workflow builders for future demand.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-purple-400 mt-1">▹</span>
+                                        <span>Companies are rapidly adopting AI, and professionals who can design automation workflows and AI agents will have a major advantage in the future job market.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3: The Hidden Opportunity -->
+                    <div class="feature-card card-right transform translate-y-8 opacity-0 transition-all duration-700" style="transition-delay: 300ms;">
+                        <div class="glass-card rounded-2xl p-6 h-full border border-white/10 hover:border-cyan/30 transition-all duration-300 group inner-glow">
+                            <!-- Card glow on hover -->
+                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-cyan/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            
+                            <div class="relative z-10">
+                                <h3 class="font-display font-semibold text-white mb-3" style="font-size: 40px;">500K+ AI Automation Jobs</h3>
+                                <ul class="text-slate-400 text-sm leading-relaxed space-y-3">
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-cyan mt-1">▹</span>
+                                        <span>5K+ jobs on Indeed — strong demand in India (Pune, Bengaluru) & remote roles</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="text-cyan mt-1">▹</span>
+                                        <span>490K+ jobs on LinkedIn — salaries reaching up to $200K/year</span>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- JavaScript for branch animation on scroll -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const skillgapSection = document.getElementById('skillgap');
+                const aiNode = skillgapSection.querySelector('.ai-opportunity-node');
+                const branchPaths = skillgapSection.querySelectorAll('.branch-path');
+                const connectionDots = skillgapSection.querySelectorAll('.connection-dots circle');
+                const featureCards = skillgapSection.querySelectorAll('.feature-card');
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // First animate the AI Opportunity node appearing
+                            setTimeout(() => {
+                                aiNode.classList.add('visible');
+                            }, 200);
+                            
+                            // Animate branch paths drawing
+                            branchPaths.forEach((path, index) => {
+                                setTimeout(() => {
+                                    path.style.transition = 'stroke-dashoffset 1.5s ease-in-out';
+                                    path.style.strokeDashoffset = '0';
+                                }, 400 + index * 200);
+                            });
+                            
+                            // Animate connection dots appearing
+                            connectionDots.forEach((dot, index) => {
+                                setTimeout(() => {
+                                    dot.style.transition = 'opacity 0.5s ease';
+                                    dot.style.opacity = '1';
+                                }, 1200 + index * 150);
+                            });
+                            
+                            // Animate cards rising up
+                            featureCards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0)';
+                                }, 800 + index * 200);
+                            });
+                            
+                            // Unobserve after animation triggers
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.2,
+                    rootMargin: '0px 0px -100px 0px'
+                });
+                
+                observer.observe(skillgapSection);
+            });
+        </script>
+    </section>
+
+    <!-- Workflow Section -->
+    <section id="workflow" class="py-24 px-6 bg-white/[0.02]">
+
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white tight-tracking mb-4">
+                    How AI <span class="gradient-text">Agents Transform Careers</span>
+                </h2>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                    Learn the skills that will transform your professional journey with AI-powered automation.
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap items-center justify-center gap-4 md:gap-8 mb-16 reveal">
+                <div class="glass-card rounded-2xl p-6 text-center min-w-[160px] inner-glow">
+                    <div class="text-4xl mb-3">💭</div>
+                    <div class="font-display font-semibold text-white">Idea</div>
+                    <div class="text-xs text-slate-500 mt-1">Define problem</div>
+                </div>
+                
+                <div class="text-cyan text-2xl md:text-3xl">→</div>
+                
+                <div class="glass-card rounded-2xl p-6 text-center min-w-[160px] inner-glow">
+                    <div class="text-4xl mb-3">🛠️</div>
+                    <div class="font-display font-semibold text-white">AI Tools</div>
+                    <div class="text-xs text-slate-500 mt-1">Connect & configure</div>
+                </div>
+                
+                <div class="text-cyan text-2xl md:text-3xl">→</div>
+                
+                <div class="glass-card rounded-2xl p-6 text-center min-w-[160px] inner-glow">
+                    <div class="text-4xl mb-3">⚙️</div>
+                    <div class="font-display font-semibold text-white">Automation</div>
+                    <div class="text-xs text-slate-500 mt-1">Build pipeline</div>
+                </div>
+                
+                <div class="text-cyan text-2xl md:text-3xl">→</div>
+                
+                <div class="glass-card rounded-2xl p-6 text-center min-w-[160px] inner-glow">
+                    <div class="text-4xl mb-3">🎯</div>
+                    <div class="font-display font-semibold text-white">Result</div>
+                    <div class="text-xs text-slate-500 mt-1">Scale & optimize</div>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-3 reveal">
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300">🤖 ChatGPT</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300">🔮 Perplexity</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300">⚡ AI Automation</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300">📦 No-code Tools</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300">🧠 AI Agents</span>
+                <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-slate-300">🔗 APIs</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audience Section -->
+    <section id="audience" class="py-40 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white tight-tracking mb-4">
+                    Who This Program <span class="gradient-text">Is For</span>
+                </h2>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                    No coding required. Learn to build powerful AI systems.
+                </p>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="glass-card rounded-2xl p-6 reveal inner-glow">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan/20 to-purple/20 border border-white/10 flex items-center justify-center mb-4">
+                        <span class="text-2xl">🎓</span>
+                    </div>
+                    <h3 class="font-display font-semibold text-white text-lg mb-2">Students</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Start your AI career early and gain skills that companies desperately need.</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 reveal inner-glow">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple/20 to-pink/20 border border-white/10 flex items-center justify-center mb-4">
+                        <span class="text-2xl">👔</span>
+                    </div>
+                    <h3 class="font-display font-semibold text-white text-lg mb-2">Working Professionals</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Automate content workflows and leverage AI-powered systems to enhance productivity, creativity, and scalable digital output.</p>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-6 reveal inner-glow">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan/20 to-cyan/10 border border-white/10 flex items-center justify-center mb-4">
+                        <span class="text-2xl">💼</span>
+                    </div>
+                    <h3 class="font-display font-semibold text-white text-lg mb-2">Business Owners</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Use AI automation to streamline operations, improve efficiency, and scale your business globally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="program" class="py-40 px-6 bg-white/[0.02]">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-white tight-tracking mb-4">
+                    AI Mantraas <span class="gradient-text">Program</span>
+                </h2>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                    A hybrid learning model designed to make you job-ready.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card rounded-2xl p-8 reveal inner-glow">
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm text-slate-300 animate-item" style="animation-delay: 0.1s;">
+                            <span class="text-cyan animate-check" style="animation-delay: 0.2s;">✓</span> AI Workflow Fundamentals
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300 animate-item" style="animation-delay: 0.2s;">
+                            <span class="text-cyan animate-check" style="animation-delay: 0.3s;">✓</span> Automation System Design
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300 animate-item" style="animation-delay: 0.3s;">
+                            <span class="text-cyan animate-check" style="animation-delay: 0.4s;">✓</span> AI Tool Integration
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300 animate-item" style="animation-delay: 0.4s;">
+                            <span class="text-cyan animate-check" style="animation-delay: 0.5s;">✓</span> No-code Platforms
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300 animate-item" style="animation-delay: 0.5s;">
+                            <span class="text-cyan animate-check" style="animation-delay: 0.6s;">✓</span> Live Q&A Sessions
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="glass-card rounded-2xl p-8 reveal inner-glow">
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm text-slate-300 animate-item" style="animation-delay: 0.6s;">
+                            <span class="text-purple-400 animate-check" style="animation-delay: 0.7s;">✓</span> Real World Projects
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300 animate-item" style="animation-delay: 0.7s;">
+                            <span class="text-purple-400 animate-check" style="animation-delay: 0.8s;">✓</span> Linkedin Profile Optimization
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300 animate-item" style="animation-delay: 0.8s;">
+                            <span class="text-purple-400 animate-check" style="animation-delay: 0.9s;">✓</span> Internship Support
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300 animate-item" style="animation-delay: 0.9s;">
+                            <span class="text-purple-400 animate-check" style="animation-delay: 1.0s;">✓</span> Portfolio Development
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300 animate-item" style="animation-delay: 1.0s;">
+                            <span class="text-purple-400 animate-check" style="animation-delay: 1.1s;">✓</span> Industry Expert Mentoring
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300 animate-item" style="animation-delay: 1.1s;">
+                            <span class="text-purple-400 animate-check" style="animation-delay: 1.2s;">✓</span> Linkedin Outreach
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-slate-300 animate-item" style="animation-delay: 1.2s;">
+                            <span class="text-purple-400 animate-check" style="animation-delay: 1.3s;">✓</span> Defence (15 min)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section with Toggle -->
+    <section id="cta" class="py-40 px-6">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <div class="relative">
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <h2 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white tight-tracking mb-6 relative">
+                    Master AI <span class="gradient-text">Workflows</span><br>
+                    <span class="gradient-text">Transform Your Career</span>
+                </h2>
+                
+                <!-- Toggle Button with Animation -->
+                <a id="joinToggleBtn" href="https://docs.google.com/forms/d/e/1FAIpQLSc8TNvi18tE4q423DZ4Qhu9YEgbAFZXUkUGXb886dV5kMA8CQ/viewform?usp=publish-editor" target="_blank" class="toggle-join-btn inline-flex items-center gap-3 bg-cyan text-black font-semibold px-10 py-5 rounded-xl text-lg">
+                    <span class="join-text">Join AI Mantraas</span>
+                    <svg class="toggle-arrow w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </a>
+                
+                <!-- Collapsible Content -->
+                <div id="joinToggleContent" class="toggle-content overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                    <div class="mt-8 glass-card rounded-2xl p-8 text-left max-w-lg mx-auto">
+                        <h3 class="text-xl font-semibold text-white mb-4">Ready to Transform Your Career?</h3>
+                        <ul class="space-y-3 text-slate-300">
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-cyan" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Learn AI Agent Building from scratch</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-cyan" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Build real-world AI automation projects</span>
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <svg class="w-5 h-5 text-cyan" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                <span>Get certified and boost your career</span>
+                            </li>
+                        </ul>
+                        <button onclick="openModal(); document.getElementById('joinToggleContent').style.maxHeight='0';" class="mt-6 w-full bg-cyan text-black font-semibold py-3 rounded-xl hover:bg-cyan/90 transition-all glow-cyan-hover">
+                            Get Started Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-slate-900/50 to-slate-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-white tight-tracking mb-4">
+                Get in Touch <span class="gradient-text">Connect With Us</span>
+            </h2>
+            <p class="text-slate-400 mb-10">
+                Have questions? We'd love to hear from you. Reach out through any of these platforms.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/company/aimantraas/" target="_blank" 
+                   class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-6 py-4 transition-all hover:scale-105">
+                    <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    <span class="text-white font-medium">LinkedIn</span>
+                </a>
+                
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/aimantraas?igsh=Y25na3k3NzB2cmgy" target="_blank" 
+                   class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-6 py-4 transition-all hover:scale-105">
+                    <svg class="w-6 h-6 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    <span class="text-white font-medium">Instagram</span>
+                </a>
+                
+                <!-- X (Twitter) -->
+                <a href="https://x.com/AIMantraas" target="_blank" 
+                   class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-6 py-4 transition-all hover:scale-105">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    <span class="text-white font-medium">X</span>
+                </a>
+                
+                <!-- Email -->
+                <a href="mailto:claudius.aimantraas@gmail.com" 
+                   class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-6 py-4 transition-all hover:scale-105">
+                    <svg class="w-6 h-6 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span class="text-white font-medium">Email</span>
+                </a>
+                
+                <!-- WhatsApp -->
+                <a href="https://chat.whatsapp.com/GEAFLilz6yR5KGzQG81MBE?mode=gi_t" target="_blank" 
+                   class="flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl px-6 py-4 transition-all hover:scale-105">
+                    <svg class="w-6 h-6 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    <span class="text-white font-medium">WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="font-display font-bold text-2xl tight-tracking">
+                <span class="gradient-text">AIMANTRAAS</span>
+            </div>
+            <nav class="flex items-center gap-6">
+                <a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Privacy</a>
+                <a href="#" class="text-sm text-slate-500 hover:text-white transition-colors">Terms</a>
+                <a href="#contact" class="text-sm text-slate-500 hover:text-white transition-colors">Contact</a>
+            </nav>
+            <p class="text-slate-500 text-sm">© 2026 AI Mantraas. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function createNetworkNodes() {
+            const bg = document.getElementById('networkBg');
+            const nodeCount = 20;
+            
+            for (let i = 0; i < nodeCount; i++) {
+                const node = document.createElement('div');
+                node.className = `network-node node-${(i % 5) + 1}`;
+                node.style.left = Math.random() * 100 + '%';
+                node.style.top = Math.random() * 100 + '%';
+                node.style.animationDelay = Math.random() * 4 + 's';
+                node.style.width = (Math.random() * 3 + 2) + 'px';
+                node.style.height = node.style.width;
+                bg.appendChild(node);
+            }
+        }
+
+        // Parallax scrolling effect
+        function initParallax() {
+            if (prefersReducedMotion) return;
+            
+            const heroBg = document.querySelector('.hero-bg');
+            const meshGradient = document.querySelector('.mesh-gradient');
+            const networkBg = document.getElementById('networkBg');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * 0.3;
+                
+                if (heroBg) {
+                    heroBg.style.transform = `translateY(${rate * 0.5}px)`;
+                }
+                if (meshGradient) {
+                    meshGradient.style.transform = `translateY(${rate * 0.2}px)`;
+                }
+                if (networkBg) {
+                    networkBg.style.transform = `translateY(${rate * 0.1}px)`;
+                }
+            }, { passive: true });
+        }
+
+        function initPopup() {
+            const popup = document.getElementById('popup');
+            const learnMoreBtn = document.getElementById('learnMoreBtn');
+            const popupClose = document.getElementById('popupClose');
+            
+            setTimeout(() => {
+                popup.classList.add('active');
+            }, 800);
+
+            learnMoreBtn.addEventListener('click', () => {
+                popup.classList.remove('active');
+                document.getElementById('problem').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            popupClose.addEventListener('click', () => {
+                popup.classList.remove('active');
+            });
+
+            popup.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    popup.classList.remove('active');
+                }
+            });
+        }
+
+        function initScrollAnimations() {
+            if (prefersReducedMotion) {
+                // Show all elements immediately if reduced motion is preferred
+                document.querySelectorAll('.reveal, .fade-in, .scale-in, .blur-in, .rotate-in, .zoom-in, .stagger-children').forEach(el => {
+                    el.classList.add('active');
+                });
+                return;
+            }
+            
+            // All animation selectors
+            const animSelectors = ['.reveal', '.fade-in', '.scale-in', '.blur-in', '.rotate-in', '.zoom-in', '.stagger-children'];
+            
+            animSelectors.forEach(selector => {
+                const elements = document.querySelectorAll(selector);
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                elements.forEach(el => observer.observe(el));
+            });
+        }
+
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+
+        // Add hover effects to buttons
+        function initButtonEffects() {
+            const buttons = document.querySelectorAll('.btn-glow, a[href*="#cta"], a[href*="#program"]');
+            
+            buttons.forEach(btn => {
+                btn.addEventListener('mouseenter', () => {
+                    btn.style.transform = 'translateY(-2px) scale(1.02)';
+                });
+                
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = '';
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createNetworkNodes();
+            initPopup();
+            initScrollAnimations();
+            initSmoothScroll();
+            initParallax();
+            initButtonEffects();
+            
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Close menu when clicking a link
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+        });
+
+        // Custom Cursor Logic
+        const cursor = document.getElementById('customCursor');
+        const trail = document.getElementById('cursorTrail');
+        const cursorDot1 = document.getElementById('cursorDot1');
+        const cursorDot2 = document.getElementById('cursorDot2');
+        const cursorDot3 = document.getElementById('cursorDot3');
+        const cursorDot4 = document.getElementById('cursorDot4');
+
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let trailX = 0, trailY = 0;
+        let dot1X = 0, dot1Y = 0;
+        let dot2X = 0, dot2Y = 0;
+        let dot3X = 0, dot3Y = 0;
+        let dot4X = 0, dot4Y = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Smooth cursor following
+        function animateCursor() {
+            // Main cursor - fast follow
+            cursorX += (mouseX - cursorX) * 0.2;
+            cursorY += (mouseY - cursorY) * 0.2;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+
+            // Trail - medium follow with delay
+            trailX += (mouseX - trailX) * 0.1;
+            trailY += (mouseY - trailY) * 0.1;
+            trail.style.left = trailX + 'px';
+            trail.style.top = trailY + 'px';
+
+            // Trail dots - staggered delay
+            dot1X += (mouseX - dot1X) * 0.08;
+            dot1Y += (mouseY - dot1Y) * 0.08;
+            cursorDot1.style.left = dot1X + 'px';
+            cursorDot1.style.top = dot1Y + 'px';
+
+            dot2X += (mouseX - dot2X) * 0.06;
+            dot2Y += (mouseY - dot2Y) * 0.06;
+            cursorDot2.style.left = dot2X + 'px';
+            cursorDot2.style.top = dot2Y + 'px';
+
+            dot3X += (mouseX - dot3X) * 0.04;
+            dot3Y += (mouseY - dot3Y) * 0.04;
+            cursorDot3.style.left = dot3X + 'px';
+            cursorDot3.style.top = dot3Y + 'px';
+
+            dot4X += (mouseX - dot4X) * 0.02;
+            dot4Y += (mouseY - dot4Y) * 0.02;
+            cursorDot4.style.left = dot4X + 'px';
+            cursorDot4.style.top = dot4Y + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor hover effect on interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .cursor-pointer, input, textarea, [role="button"]');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Hide cursor elements when leaving window
+        document.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+            trail.style.opacity = '0';
+            cursorDot1.style.opacity = '0';
+            cursorDot2.style.opacity = '0';
+            cursorDot3.style.opacity = '0';
+            cursorDot4.style.opacity = '0';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursor.style.opacity = '1';
+            trail.style.opacity = '0.6';
+            cursorDot1.style.opacity = '0.8';
+            cursorDot2.style.opacity = '0.6';
+            cursorDot3.style.opacity = '0.4';
+            cursorDot4.style.opacity = '0.2';
+        });
+    </script>
+    
+    <!-- Enhanced JavaScript Animations -->
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    
+                    // Add staggered animation for children
+                    if (entry.target.classList.contains('stagger-children')) {
+                        entry.target.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.reveal, .fade-in, .scale-in, .blur-in, .rotate-in, .zoom-in, .stagger-children').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth reveal on scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, index * 100);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Counter animation
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start).toLocaleString();
+                }
+            }, 16);
+        }
+
+        // Trigger counter animation when visible
+        const counterElements = document.querySelectorAll('.counter');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    const target = parseInt(entry.target.dataset.target);
+                    animateCounter(entry.target, target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counterElements.forEach(el => counterObserver.observe(el));
+
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax-bg');
+            
+            parallaxElements.forEach(el => {
+                const speed = el.dataset.speed || 0.5;
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Mouse movement parallax for cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+
+        // Smooth scroll with easing
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                    const startPosition = window.pageYOffset;
+                    const distance = targetPosition - startPosition;
+                    const duration = 1000;
+                    let start = null;
+                    
+                    function step(timestamp) {
+                        if (!start) start = timestamp;
+                        const progress = timestamp - start;
+                        const t = Math.min(progress / duration, 1);
+                        
+                        // Easing function (ease-in-out)
+                        const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+                        
+                        window.scrollTo(0, startPosition + distance * ease);
+                        
+                        if (progress < duration) {
+                            window.requestAnimationFrame(step);
+                        }
+                    }
+                    
+                    window.requestAnimationFrame(step);
+                }
+            });
+        });
+
+        // Loading animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            
+            // Animate hero elements
+            document.querySelectorAll('.hero-badge, .hero-title, .hero-description, .hero-cta-row, .hero-stats').forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+
+        // Add animation classes on scroll
+        const animatedElements = document.querySelectorAll('.feature-card, .bento-grid > div');
+        
+        const animObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0) scale(1)';
+                    }, index * 50);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px) scale(0.95)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            animObserver.observe(el);
+        });
+
+        // Floating particles effect
+        function createParticles() {
+            const container = document.querySelector('.mesh-gradient');
+            if (!container) return;
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 4 + 's';
+                particle.style.animationDuration = (3 + Math.random() * 2) + 's';
+                container.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+
+        // Magnetic button effect
+        document.querySelectorAll('.btn-glow, a[href="#"]').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+        
+        // Modal Functions
+        function openModal() {
+            const modal = document.getElementById('registrationModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('registrationModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            // Reset form after closing
+            setTimeout(() => {
+                document.getElementById('registrationForm').reset();
+                document.getElementById('modalFormContent').style.display = 'block';
+                document.getElementById('modalSuccessContent').style.display = 'none';
+                document.querySelectorAll('.form-group').forEach(el => el.classList.remove('error'));
+            }, 300);
+        }
+        
+        // Close modal on overlay click
+        document.getElementById('registrationModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+        
+        // Form Validation and Submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = {
+                fullName: form.fullName.value.trim(),
+                collegeName: form.collegeName.value.trim(),
+                email: form.email.value.trim(),
+                phone: form.phone.value.trim(),
+                course: form.course.value
+            };
+            
+            // Validate all fields
+            let isValid = true;
+            
+            // Clear previous errors
+            document.querySelectorAll('.form-group').forEach(el => el.classList.remove('error'));
+            
+            // Full Name validation
+            if (!formData.fullName || formData.fullName.length < 2) {
+                document.getElementById('fullName').parentElement.classList.add('error');
+                isValid = false;
+            }
+            
+            // College Name validation
+            if (!formData.collegeName || formData.collegeName.length < 2) {
+                document.getElementById('collegeName').parentElement.classList.add('error');
+                isValid = false;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!formData.email || !emailRegex.test(formData.email)) {
+                document.getElementById('email').parentElement.classList.add('error');
+                isValid = false;
+            }
+            
+            // Phone validation (basic - at least 10 digits)
+            const phoneRegex = /^[\d\s\+\-()]{10,}$/;
+            if (!formData.phone || !phoneRegex.test(formData.phone)) {
+                document.getElementById('phone').parentElement.classList.add('error');
+                isValid = false;
+            }
+            
+            // Course validation
+            if (!formData.course) {
+                document.getElementById('course').parentElement.classList.add('error');
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                return;
+            }
+            
+            // Send data to backend API
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            // Send to Flask backend API (works both locally and in production)
+            const API_BASE = window.location.origin;
+            fetch(`${API_BASE}/api/join-requests`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Show success message
+                document.getElementById('modalFormContent').style.display = 'none';
+                document.getElementById('modalSuccessContent').style.display = 'block';
+                
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again.');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        }
+    </script>
+    
+    <!-- Registration Modal HTML (Hidden - using Google Form now) -->
+    <div class="modal-overlay" id="registrationModal" style="display: none;">
+        <div class="modal-content" style="position: relative;">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            
+            <div id="modalFormContent">
+                <div class="modal-header">
+                    <h2>Join AI Mantraas 🚀</h2>
+                    <p>Fill in your details to get started</p>
+                </div>
+                
+                <form id="registrationForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                        <span class="error-message">Please enter your full name</span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="collegeName">College Name *</label>
+                        <input type="text" id="collegeName" name="collegeName" placeholder="Enter your college name" required>
+                        <span class="error-message">Please enter your college name</span>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            <span class="error-message">Please enter a valid email</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 9876543210" required>
+                            <span class="error-message">Please enter a valid phone number</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="course">Desired Course *</label>
+                        <select id="course" name="course" required>
+                            <option value="">Select a course</option>
+                            <option value="ai-automation">AI Automation Mastery</option>
+                            <option value="agent-building">AI Agent Building</option>
+                            <option value="workflow-design">AI Workflow Design</option>
+                            <option value="no-code-ai">No-Code AI Solutions</option>
+                            <option value="career-pack">Complete Career Pack</option>
+                        </select>
+                        <span class="error-message">Please select a course</span>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                    
+                    <p class="form-footer">
+                        By submitting, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>
+                    </p>
+                </form>
+            </div>
+            
+            <div id="modalSuccessContent" style="display: none;">
+                <div class="form-success">
+                    <div class="success-icon">✓</div>
+                    <h3>Application Submitted! 🎉</h3>
+                    <p>Thank you for joining AI Mantraas! Our team will contact you within 24 hours with next steps.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Advanced JavaScript Animations -->
+    <script>
+        // Toggle function for Join AI Mantraas button
+        function toggleJoinSection() {
+            const btn = document.getElementById('joinToggleBtn');
+            const content = document.getElementById('joinToggleContent');
+            
+            btn.classList.toggle('active');
+            
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0';
+                content.classList.remove('expanded');
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.classList.add('expanded');
+            }
+        }
+
+        // ===== ENHANCED SCROLL ANIMATIONS =====
+        
+        // Advanced Intersection Observer with multiple animation types
+        class AnimationController {
+            constructor() {
+                this.animatedElements = new Set();
+                this.init();
+            }
+
+            init() {
+                // Scroll-triggered animations
+                this.setupScrollAnimations();
+                
+                // Mouse parallax
+                this.setupMouseParallax();
+                
+                // Cursor tracking
+                this.setupCursorTracking();
+                
+                // Smooth reveal on scroll
+                this.setupRevealAnimations();
+                
+                // Progress-based animations
+                this.setupProgressAnimations();
+                
+                // Enhanced counter animation
+                this.setupCounterAnimations();
+            }
+
+            setupScrollAnimations() {
+                const scrollElements = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-scale');
+                
+                const scrollObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Add visible class with delay based on index
+                            const delay = Array.from(entry.target.parentElement?.children || []).indexOf(entry.target) * 100;
+                            setTimeout(() => {
+                                entry.target.classList.add('visible');
+                            }, delay);
+                            
+                            // Unobserve after animation
+                            scrollObserver.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                scrollElements.forEach(el => scrollObserver.observe(el));
+            }
+
+            setupMouseParallax() {
+                const parallaxContainer = document.querySelector('.mesh-gradient');
+                if (!parallaxContainer) return;
+
+                let mouseX = 0;
+                let mouseY = 0;
+
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = (e.clientX / window.innerWidth - 0.5) * 20;
+                    mouseY = (e.clientY / window.innerHeight - 0.5) * 20;
+
+                    // Apply subtle parallax to background elements
+                    const bgElements = document.querySelectorAll('.parallax-bg');
+                    bgElements.forEach(el => {
+                        const speed = parseFloat(el.dataset.speed) || 0.1;
+                        el.style.transform = `translate(${mouseX * speed}px, ${mouseY * speed}px)`;
+                    });
+                });
+            }
+
+            setupCursorTracking() {
+                // Custom cursor trail effect
+                const cursorTrail = document.createElement('div');
+                cursorTrail.className = 'cursor-trail';
+                cursorTrail.style.cssText = `
+                    position: fixed;
+                    width: 20px;
+                    height: 20px;
+                    border: 2px solid rgba(0, 212, 255, 0.5);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 9999;
+                    transition: transform 0.1s ease, opacity 0.3s ease;
+                    opacity: 0;
+                `;
+                document.body.appendChild(cursorTrail);
+
+                let cursorVisible = false;
+                let cursorX = 0, cursorY = 0;
+                let trailX = 0, trailY = 0;
+
+                document.addEventListener('mouseenter', () => {
+                    cursorVisible = true;
+                    cursorTrail.style.opacity = '1';
+                });
+
+                document.addEventListener('mouseleave', () => {
+                    cursorVisible = false;
+                    cursorTrail.style.opacity = '0';
+                });
+
+                document.addEventListener('mousemove', (e) => {
+                    cursorX = e.clientX;
+                    cursorY = e.clientY;
+                    
+                    // Smooth trail following
+                    const animateTrail = () => {
+                        trailX += (cursorX - trailX) * 0.15;
+                        trailY += (cursorY - trailY) * 0.15;
+                        
+                        cursorTrail.style.left = trailX - 10 + 'px';
+                        cursorTrail.style.top = trailY - 10 + 'px';
+                        
+                        requestAnimationFrame(animateTrail);
+                    };
+                    animateTrail();
+                });
+
+                // Add hover effect on interactive elements
+                document.querySelectorAll('a, button, .glass-card').forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        cursorTrail.style.transform = 'scale(1.5)';
+                        cursorTrail.style.borderColor = 'rgba(139, 92, 246, 0.8)';
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        cursorTrail.style.transform = 'scale(1)';
+                        cursorTrail.style.borderColor = 'rgba(0, 212, 255, 0.5)';
+                    });
+                });
+            }
+
+            setupRevealAnimations() {
+                // Enhanced reveal with multiple animation types
+                const revealElements = document.querySelectorAll('.reveal, .fade-in, .scale-in, .blur-in');
+                
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry, index) => {
+                        if (entry.isIntersecting) {
+                            // Staggered animation based on parent's children
+                            const siblings = Array.from(entry.target.parentElement?.children || []);
+                            const delay = siblings.indexOf(entry.target) * 80;
+                            
+                            setTimeout(() => {
+                                entry.target.classList.add('active');
+                            }, delay);
+                            
+                            revealObserver.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.15,
+                    rootMargin: '0px 0px -100px 0px'
+                });
+
+                revealElements.forEach(el => revealObserver.observe(el));
+            }
+
+            setupProgressAnimations() {
+                // Animate progress bars on scroll
+                const progressBars = document.querySelectorAll('.progress-bar, [data-progress]');
+                
+                const progressObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const progress = entry.target.dataset.progress || 100;
+                            entry.target.style.width = progress + '%';
+                            progressObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                progressBars.forEach(el => progressObserver.observe(el));
+            }
+
+            setupCounterAnimations() {
+                // Enhanced number counter with easing
+                const counters = document.querySelectorAll('.counter, [data-count]');
+                
+                const counterObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                            entry.target.classList.add('counted');
+                            
+                            const target = parseInt(entry.target.dataset.count || entry.target.dataset.target || 0);
+                            const duration = parseInt(entry.target.dataset.duration) || 2000;
+                            const prefix = entry.target.dataset.prefix || '';
+                            const suffix = entry.target.dataset.suffix || '';
+                            
+                            this.animateCounter(entry.target, target, duration, prefix, suffix);
+                            counterObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                counters.forEach(el => counterObserver.observe(el));
+            }
+
+            animateCounter(element, target, duration, prefix = '', suffix = '') {
+                const start = 0;
+                const startTime = performance.now();
+                
+                // Easing function (ease-out)
+                const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+                
+                const updateCounter = (currentTime) => {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    const easeProgress = easeOutQuart(progress);
+                    const current = Math.floor(start + (target - start) * easeProgress);
+                    
+                    element.textContent = prefix + current.toLocaleString() + suffix;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        element.textContent = prefix + target.toLocaleString() + suffix;
+                    }
+                };
+                
+                requestAnimationFrame(updateCounter);
+            }
+        }
+
+        // Initialize animation controller
+        document.addEventListener('DOMContentLoaded', () => {
+            new AnimationController();
+        });
+
+        // ===== ENHANCED PARTICLE SYSTEM =====
+        class ParticleSystem {
+            constructor() {
+                this.container = document.querySelector('.mesh-gradient');
+                this.particles = [];
+                this.maxParticles = 30;
+                this.init();
+            }
+
+            init() {
+                if (!this.container) return;
+                
+                // Create initial particles
+                this.createParticles();
+                
+                // Add scroll-based particle generation
+                this.setupScrollParticles();
+            }
+
+            createParticles() {
+                for (let i = 0; i < this.maxParticles; i++) {
+                    this.addParticle();
+                }
+            }
+
+            addParticle() {
+                const particle = document.createElement('div');
+                const size = Math.random() * 4 + 2;
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const duration = Math.random() * 10 + 10;
+                const delay = Math.random() * 5;
+                const colors = ['#00D4FF', '#8B5CF6', '#00D4FF'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                particle.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}%;
+                    top: ${y}%;
+                    background: ${color};
+                    border-radius: 50%;
+                    opacity: 0;
+                    pointer-events: none;
+                    animation: particleFloat ${duration}s ease-in-out ${delay}s infinite;
+                `;
+                
+                this.container.appendChild(particle);
+                this.particles.push(particle);
+            }
+
+            setupScrollParticles() {
+                let lastScroll = 0;
+                
+                window.addEventListener('scroll', () => {
+                    const currentScroll = window.pageYOffset;
+                    const scrollDiff = currentScroll - lastScroll;
+                    
+                    // Add more particles on scroll
+                    if (Math.abs(scrollDiff) > 50 && this.particles.length < 50) {
+                        this.addParticle();
+                    }
+                    
+                    // Move particles based on scroll
+                    this.particles.forEach((particle, index) => {
+                        const speed = (index + 1) * 0.1;
+                        const currentTop = parseFloat(particle.style.top);
+                        particle.style.top = (currentTop - scrollDiff * speed * 0.01) + '%';
+                    });
+                    
+                    lastScroll = currentScroll;
+                });
+            }
+        }
+
+        // Add particle animation keyframes dynamically
+        const particleStyle = document.createElement('style');
+        particleStyle.textContent = `
+            @keyframes particleFloat {
+                0%, 100% {
+                    transform: translate(0, 0) scale(1);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 0.8;
+                }
+                50% {
+                    transform: translate(${Math.random() * 50 - 25}px, ${Math.random() * -50 - 20}px) scale(1.2);
+                    opacity: 0.4;
+                }
+                90% {
+                    opacity: 0.6;
+                }
+            }
+        `;
+        document.head.appendChild(particleStyle);
+
+        // Initialize particle system
+        document.addEventListener('DOMContentLoaded', () => {
+            new ParticleSystem();
+        });
+
+        // ===== SMOOTH SCROLL ENHANCEMENT =====
+        class SmoothScroll {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                // Enhanced smooth scroll with momentum
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = anchor.getAttribute('href');
+                        const target = document.querySelector(targetId);
+                        
+                        if (target) {
+                            this.smoothScrollTo(target);
+                        }
+                    });
+                });
+            }
+
+            smoothScrollTo(target) {
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 1000;
+                let startTime = null;
+
+                // Easing function (ease-in-out cubic)
+                const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+                const animation = (currentTime) => {
+                    if (!startTime) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    const easeProgress = easeInOutCubic(progress);
+                    
+                    window.scrollTo(0, startPosition + distance * easeProgress);
+
+                    if (progress < 1) {
+                        requestAnimationFrame(animation);
+                    }
+                };
+
+                requestAnimationFrame(animation);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new SmoothScroll();
+        });
+
+
+
+        // Reduce animation complexity on low-performance devices
+        const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+        
+        if (motionPreference.matches) {
+            // Disable complex animations for users who prefer reduced motion
+            document.documentElement.style.setProperty('--animation-duration', '0ms');
+        }
+
+        // Throttle scroll events for better performance
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) return;
+            
+            scrollTimeout = setTimeout(() => {
+                scrollTimeout = null;
+                // Trigger scroll-based updates here
+                document.body.classList.add('scrolled');
+            }, 100);
+        }, { passive: true });
+
+        // ===== ENHANCED FORM VALIDATION ANIMATION =====
+        class FormAnimation {
+            constructor() {
+                this.form = document.getElementById('registrationForm');
+                this.init();
+            }
+
+            init() {
+                if (!this.form) return;
+
+                // Animate form fields on focus
+                this.form.querySelectorAll('input, select').forEach(field => {
+                    field.addEventListener('focus', () => {
+                        this.animateFieldFocus(field, true);
+                    });
+                    
+                    field.addEventListener('blur', () => {
+                        this.animateFieldFocus(field, false);
+                    });
+                });
+
+                // Animate submit button
+                const submitBtn = this.form.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.addEventListener('click', () => {
+                        this.animateSubmit(submitBtn);
+                    });
+                }
+            }
+
+            animateFieldFocus(field, isFocus) {
+                const parent = field.closest('.form-group');
+                if (!parent) return;
+
+                if (isFocus) {
+                    parent.classList.add('focused');
+                    parent.style.transform = 'scale(1.02)';
+                    parent.style.transition = 'all 0.3s ease';
+                } else {
+                    parent.classList.remove('focused');
+                    parent.style.transform = 'scale(1)';
+                }
+            }
+
+            animateSubmit(btn) {
+                // Add loading animation
+                const originalText = btn.textContent;
+                btn.innerHTML = '<span class="loading-dots">Processing<span>.</span><span>.</span><span>.</span></span>';
+                btn.style.pointerEvents = 'none';
+
+                // Reset after animation
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.pointerEvents = 'auto';
+                }, 2000);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new FormAnimation();
+        });
+    </script>
+    
+    <!-- For Business Modal -->
+    <div id="business-modal" class="fixed inset-0 z-[9999] hidden">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeBusinessPage()"></div>
+        <div class="absolute inset-0 overflow-y-auto">
+            <div class="min-h-full flex items-center justify-center p-4">
+                <div class="bg-[#0A0A0F] rounded-2xl max-w-4xl w-full p-8 md:p-12 relative" style="background: var(--ink);">
+                    <button onclick="closeBusinessPage()" class="absolute top-4 right-4 text-white/60 hover:text-white text-2xl">&times;</button>
+                    <div style="color: var(--paper); font-family: 'DM Sans', sans-serif;">
+                        <nav style="position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: rgba(10,10,15,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <a href="#" class="logo" style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.5px; color: #F5F2EC; text-decoration: none;">AI <span style="color: #FF4D1C;">Mantraas</span></a>
+                            <a href="#" onclick="closeBusinessPage()" style="background: #F5F2EC; color: #0A0A0F; padding: 10px 22px; border-radius: 4px; text-decoration: none; font-weight: 500; font-size: 0.875rem;">← Back to Home</a>
+                        </nav>
+                        <div style="padding-top: 100px; min-height: 100vh;">
+                            <h1 style="font-family: 'Syne', sans-serif; font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 800; line-height: 1.05; letter-spacing: -2px; color: #F5F2EC; margin-bottom: 28px;">For Business</h1>
+                            <p style="font-size: 1.1rem; color: #6B6B6B; max-width: 600px; margin-bottom: 40px; line-height: 1.7;">Transform your business operations with intelligent automation. We help organizations streamline workflows, reduce manual tasks, and achieve significant ROI.</p>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 60px;">
+                                <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 32px;">
+                                    <div style="font-size: 2.5rem; margin-bottom: 16px;">📋</div>
+                                    <h3 style="font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.25rem; color: #F5F2EC; margin-bottom: 12px;">Workflow Automation</h3>
+                                    <p style="font-size: 0.9rem; color: #6B6B6B; line-height: 1.6;">Automate repetitive tasks and streamline business processes across departments.</p>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 32px;">
+                                    <div style="font-size: 2.5rem; margin-bottom: 16px;">🤖</div>
+                                    <h3 style="font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.25rem; color: #F5F2EC; margin-bottom: 12px;">AI Solutions</h3>
+                                    <p style="font-size: 0.9rem; color: #6B6B6B; line-height: 1.6;">Leverage cutting-edge AI to solve complex business challenges.</p>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 32px;">
+                                    <div style="font-size: 2.5rem; margin-bottom: 16px;">📊</div>
+                                    <h3 style="font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.25rem; color: #F5F2EC; margin-bottom: 12px;">Analytics & Insights</h3>
+                                    <p style="font-size: 0.9rem; color: #6B6B6B; line-height: 1.6;">Get actionable insights from your data with advanced analytics.</p>
+                                </div>
+                            </div>
+                            
+                            <div style="text-align: center; padding-bottom: 60px;">
+                                <a href="#contact" onclick="closeBusinessPage()" style="background: #FF4D1C; color: white; padding: 15px 32px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 0.95rem; display: inline-block;">Get Started →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    function openBusinessPage() {
+        document.getElementById('business-modal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeBusinessPage() {
+        document.getElementById('business-modal').classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Procfile for AI Mantraas Student Portal
+# =========================================
+# This file is used by deployment platforms (Render, Heroku, etc.)
+# to start the application.
+
+# Web server - Using Gunicorn with WSGI
+web: gunicorn --bind 0.0.0.0:$PORT --workers 4 --timeout 120 wsgi:application
+
+# For local development, you can use:
+# web: python app.py

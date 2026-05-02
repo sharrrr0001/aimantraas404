@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAARTHI — India's First A.I Sales Employee</title>
+<link rel="icon" type="image/png" href="bglogo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    bg: '#050505',
+                    'bg-secondary': '#0A0A0A',
+                    cyan: { DEFAULT: '#00D4FF', glow: 'rgba(0, 212, 255, 0.5)' },
+                    purple: { DEFAULT: '#8B5CF6', glow: 'rgba(139, 92, 246, 0.5)' },
+                    slate: { DEFAULT: '#A1A1AA', dark: '#71717A' }
+                },
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                    display: ['Sora', 'sans-serif'],
+                }
+            }
+        }
+    }
+</script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+        font-family: 'Inter', sans-serif;
+        background-color: #050505;
+        color: #A1A1AA;
+        overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0A0A0A; }
+    ::-webkit-scrollbar-thumb { background: #27272A; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #3F3F46; }
+
+    /* NAV */
+    nav {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 18px 48px;
+        background: rgba(5, 5, 5, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .logo {
+        font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.25rem;
+        letter-spacing: -0.5px; color: white; text-decoration: none;
+    }
+    .logo span {
+        background: linear-gradient(90deg, #00D4FF, #8B5CF6);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    nav a.cta-nav {
+        background: linear-gradient(135deg, #00D4FF, #8B5CF6);
+        color: #050505; padding: 10px 22px; border-radius: 8px;
+        text-decoration: none; font-weight: 600; font-size: 0.875rem; transition: all 0.2s;
+    }
+    nav a.cta-nav:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3); }
+
+    /* GRADIENT TEXT */
+    .gradient-text {
+        background: linear-gradient(90deg, #00D4FF, #8B5CF6);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    /* EYEBROW */
+    .eyebrow {
+        font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 700;
+        letter-spacing: 3px; text-transform: uppercase;
+        background: linear-gradient(90deg, #00D4FF, #8B5CF6);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+    }
+    .eyebrow::before {
+        content: ''; display: block; width: 28px; height: 2px;
+        background: linear-gradient(90deg, #00D4FF, #8B5CF6);
+    }
+
+    /* =============================
+       CSS ROBOT ANIMATION
+       ============================= */
+
+    .robot {
+        position: relative; width: 160px; height: 200px;
+        animation: robotBob 4s ease-in-out infinite;
+    }
+    @keyframes robotBob {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-14px); }
+    }
+
+    /* Head */
+    .r-head {
+        position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+        width: 88px; height: 66px;
+        background: linear-gradient(160deg, #1e1e30, #141422);
+        border: 2px solid rgba(0, 212, 255, 0.25);
+        border-radius: 18px 18px 12px 12px;
+        z-index: 3;
+        box-shadow: 0 0 40px rgba(0, 212, 255, 0.12), inset 0 1px 0 rgba(255,255,255,0.04);
+        animation: headTilt 5s ease-in-out infinite;
+    }
+    @keyframes headTilt {
+        0%, 100% { transform: translateX(-50%) rotate(0deg); }
+        30% { transform: translateX(-50%) rotate(2deg); }
+        70% { transform: translateX(-50%) rotate(-1.5deg); }
+    }
+
+    /* Visor / Face Plate */
+    .r-visor {
+        position: absolute; top: 10px; left: 50%; transform: translateX(-50%);
+        width: 72px; height: 36px;
+        background: linear-gradient(180deg, rgba(0, 212, 255, 0.06), rgba(139, 92, 246, 0.04));
+        border: 1px solid rgba(0, 212, 255, 0.15);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    /* Eyes */
+    .r-eye {
+        position: absolute; top: 50%; transform: translateY(-50%);
+        width: 14px; height: 14px; border-radius: 50%;
+        background: radial-gradient(circle at 35% 35%, #00D4FF, rgba(0, 212, 255, 0.2));
+        box-shadow: 0 0 10px rgba(0, 212, 255, 0.6), 0 0 30px rgba(0, 212, 255, 0.2);
+        animation: eyeBlink 4s ease-in-out infinite;
+    }
+    .r-eye.l { left: 14px; }
+    .r-eye.r { right: 14px; animation-delay: 0.1s; }
+    @keyframes eyeBlink {
+        0%, 42%, 48%, 100% { transform: translateY(-50%) scaleY(1); }
+        45% { transform: translateY(-50%) scaleY(0.1); }
+    }
+    /* Pupil scan */
+    .r-eye::after {
+        content: ''; position: absolute; top: 3px; left: 3px;
+        width: 5px; height: 5px; border-radius: 50%;
+        background: white; opacity: 0.7;
+        animation: pupilScan 6s ease-in-out infinite;
+    }
+    @keyframes pupilScan {
+        0%, 100% { transform: translateX(0); }
+        30% { transform: translateX(3px); }
+        60% { transform: translateX(-2px); }
+    }
+
+    /* Mouth */
+    .r-mouth {
+        position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+        width: 28px; height: 3px;
+        background: rgba(0, 212, 255, 0.3);
+        border-radius: 2px;
+        animation: mouthSpeak 3s ease-in-out infinite;
+    }
+    @keyframes mouthSpeak {
+        0%, 25%, 50%, 75%, 100% { height: 3px; width: 28px; border-radius: 2px; }
+        30%, 45% { height: 7px; width: 20px; border-radius: 4px; }
+        70%, 85% { height: 5px; width: 24px; border-radius: 3px; }
+    }
+
+    /* Antenna */
+    .r-antenna {
+        position: absolute; top: -22px; left: 50%; transform: translateX(-50%);
+        width: 3px; height: 22px;
+        background: linear-gradient(to top, rgba(0, 212, 255, 0.3), rgba(139, 92, 246, 0.7));
+        border-radius: 2px;
+        transform-origin: bottom center;
+        animation: antennaWobble 3s ease-in-out infinite;
+    }
+    @keyframes antennaWobble {
+        0%, 100% { transform: translateX(-50%) rotate(0deg); }
+        25% { transform: translateX(-50%) rotate(6deg); }
+        75% { transform: translateX(-50%) rotate(-4deg); }
+    }
+    .r-antenna-ball {
+        position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+        width: 10px; height: 10px; border-radius: 50%;
+        background: radial-gradient(circle, #a78bfa, rgba(139, 92, 246, 0.3));
+        box-shadow: 0 0 12px rgba(139, 92, 246, 0.7);
+        animation: antennaPulse 2s ease-in-out infinite;
+    }
+    @keyframes antennaPulse {
+        0%, 100% { box-shadow: 0 0 6px rgba(139, 92, 246, 0.4); transform: translateX(-50%) scale(1); }
+        50% { box-shadow: 0 0 20px rgba(139, 92, 246, 1), 0 0 40px rgba(139, 92, 246, 0.3); transform: translateX(-50%) scale(1.25); }
+    }
+
+    /* Ears */
+    .r-ear {
+        position: absolute; top: 18px; width: 10px; height: 22px;
+        background: linear-gradient(180deg, rgba(0, 212, 255, 0.15), rgba(0, 212, 255, 0.05));
+        border: 1px solid rgba(0, 212, 255, 0.2);
+        border-radius: 4px;
+    }
+    .r-ear.l { left: -12px; }
+    .r-ear.r { right: -12px; }
+
+    /* Neck */
+    .r-neck {
+        position: absolute; top: 62px; left: 50%; transform: translateX(-50%);
+        width: 22px; height: 12px;
+        background: linear-gradient(180deg, rgba(0, 212, 255, 0.1), rgba(0, 212, 255, 0.03));
+        border-left: 1px solid rgba(0, 212, 255, 0.15);
+        border-right: 1px solid rgba(0, 212, 255, 0.15);
+        z-index: 2;
+    }
+
+    /* Body */
+    .r-body {
+        position: absolute; top: 72px; left: 50%; transform: translateX(-50%);
+        width: 110px; height: 76px;
+        background: linear-gradient(160deg, #1e1e30, #141422);
+        border: 2px solid rgba(0, 212, 255, 0.18);
+        border-radius: 12px 12px 8px 8px;
+        z-index: 2;
+        box-shadow: 0 0 30px rgba(0, 212, 255, 0.08);
+    }
+
+    /* Chest Core */
+    .r-core {
+        position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+        width: 26px; height: 26px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(139, 92, 246, 0.5), rgba(139, 92, 246, 0.1));
+        border: 2px solid rgba(139, 92, 246, 0.35);
+        box-shadow: 0 0 14px rgba(139, 92, 246, 0.35);
+        animation: corePulse 2.5s ease-in-out infinite;
+    }
+    @keyframes corePulse {
+        0%, 100% { box-shadow: 0 0 8px rgba(139, 92, 246, 0.25); opacity: 0.6; }
+        50% { box-shadow: 0 0 24px rgba(139, 92, 246, 0.7), 0 0 48px rgba(139, 92, 246, 0.15); opacity: 1; }
+    }
+
+    /* Chest Bars */
+    .r-bars {
+        position: absolute; top: 46px; left: 50%; transform: translateX(-50%);
+        display: flex; gap: 3px;
+    }
+    .r-bar {
+        width: 5px; height: 10px; border-radius: 2px;
+        background: rgba(0, 212, 255, 0.2);
+        animation: barPulse 2s ease-in-out infinite;
+    }
+    .r-bar:nth-child(1) { animation-delay: 0s; }
+    .r-bar:nth-child(2) { animation-delay: 0.15s; }
+    .r-bar:nth-child(3) { animation-delay: 0.3s; }
+    .r-bar:nth-child(4) { animation-delay: 0.45s; }
+    .r-bar:nth-child(5) { animation-delay: 0.6s; }
+    @keyframes barPulse {
+        0%, 100% { background: rgba(0, 212, 255, 0.15); height: 5px; }
+        50% { background: rgba(0, 212, 255, 0.6); height: 14px; }
+    }
+
+    /* Arms */
+    .r-arm {
+        position: absolute; top: 78px; width: 16px; height: 48px;
+        background: linear-gradient(180deg, #1a1a2a, #12121e);
+        border: 1px solid rgba(0, 212, 255, 0.15);
+        border-radius: 8px;
+        z-index: 1;
+    }
+    .r-arm.l {
+        left: 6px;
+        transform-origin: top center;
+        animation: armSwingL 5s ease-in-out infinite;
+    }
+    .r-arm.r {
+        right: 6px;
+        transform-origin: top center;
+        animation: armSwingR 5s ease-in-out infinite 0.8s;
+    }
+    @keyframes armSwingL {
+        0%, 100% { transform: rotate(4deg); }
+        50% { transform: rotate(-10deg); }
+    }
+    @keyframes armSwingR {
+        0%, 100% { transform: rotate(-4deg); }
+        50% { transform: rotate(10deg); }
+    }
+    /* Hands */
+    .r-hand {
+        position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
+        width: 12px; height: 12px; border-radius: 50%;
+        background: #1e1e30; border: 1px solid rgba(0, 212, 255, 0.15);
+    }
+
+    /* Glow under robot */
+    .r-shadow {
+        position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+        width: 120px; height: 16px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(0, 212, 255, 0.18), transparent);
+        animation: shadowPulse 4s ease-in-out infinite;
+    }
+    @keyframes shadowPulse {
+        0%, 100% { opacity: 0.5; transform: translateX(-50%) scaleX(1); }
+        50% { opacity: 0.9; transform: translateX(-50%) scaleX(1.15); }
+    }
+
+    /* HERO */
+    .hero {
+        min-height: 100vh; padding: 80px 40px 100px;
+        display: grid;
+        grid-template-columns: 1.1fr minmax(320px, 620px);
+        gap: 4rem;
+        align-items: center;
+        position: relative;
+    }
+    
+    .hero-left {
+        max-width: 650px;
+        text-align: left;
+    }
+    
+    .hero-left * {
+        text-align: left !important;
+    }
+    
+    .hero-right {
+        width: 100%;
+        max-width: 620px;
+        justify-self: end;
+        position: relative;
+        z-index: 1;
+    }
+    .hero-right img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    }
+    .hero::before {
+        content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+        width: 800px; height: 800px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .hero::after {
+        content: ''; position: absolute; top: 120px; right: 8%;
+        width: 500px; height: 500px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(0, 212, 255, 0.06) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .hero-badge {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 8px 20px; border-radius: 100px;
+        background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.3);
+        font-family: 'Sora', sans-serif; font-size: 0.78rem; font-weight: 600;
+        color: #c4b5fd; letter-spacing: 0.5px;
+        position: relative; z-index: 1;
+    }
+    .hero h1 {
+        font-family: 'Sora', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800; line-height: 1.12; letter-spacing: -2px;
+        color: white; max-width: 800px;
+        position: relative; z-index: 1;
+    }
+    .hero h1 em {
+        font-style: normal;
+        background: linear-gradient(90deg, #00D4FF, #8B5CF6);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-sub {
+        font-size: 1.12rem; color: #71717A; max-width: 600px;
+        line-height: 1.75; font-weight: 300;
+        position: relative; z-index: 1;
+    }
+    .hero-sub strong { color: white; font-weight: 500; }
+    .hero-ctas { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; justify-content: flex-start; position: relative; z-index: 1; }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #00D4FF, #8B5CF6);
+        color: #050505; padding: 15px 32px; border-radius: 8px;
+        text-decoration: none; font-weight: 600; font-size: 0.95rem;
+        transition: all 0.2s; display: inline-block;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3); }
+    .btn-secondary {
+        background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+        color: white; padding: 15px 32px; border-radius: 8px;
+        text-decoration: none; font-weight: 600; font-size: 0.95rem;
+        transition: all 0.2s; display: inline-block;
+    }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
+
+    /* SECTIONS — consistent spacing */
+    section { padding: 120px 80px; position: relative; }
+    .section-header { margin-bottom: 48px; }
+    h2 {
+        font-family: 'Sora', sans-serif; font-size: 2.2rem; font-weight: 800;
+        line-height: 1.15; letter-spacing: -1.5px; color: white; margin-bottom: 12px;
+    }
+    .section-sub { font-size: 1rem; color: #71717A; max-width: 520px; line-height: 1.7; font-weight: 300; }
+
+    /* WHY SECTION */
+    .why-section { background: #050505; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .why-card {
+        background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 16px; padding: 36px 28px; transition: all 0.3s;
+    }
+    .why-card:hover { background: rgba(139, 92, 246, 0.06); border-color: rgba(139, 92, 246, 0.2); transform: translateY(-4px); }
+    .why-icon {
+        width: 50px; height: 50px; border-radius: 12px;
+        background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(139, 92, 246, 0.15));
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.3rem; margin-bottom: 20px;
+    }
+    .why-card h3 {
+        font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.05rem;
+        color: white; margin-bottom: 10px;
+    }
+    .why-card p { font-size: 0.88rem; color: #71717A; line-height: 1.65; }
+
+    /* COMPARISON SECTION */
+    .comparison-section { background: #0A0A0A; }
+    .comparison-grid { max-width: 880px; }
+    .comparison-header {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+        margin-bottom: 12px;
+    }
+    .comparison-header .col {
+        text-align: center; padding: 20px; border-radius: 12px;
+    }
+    .comparison-header .col.agency {
+        background: rgba(255, 107, 107, 0.05); border: 1px solid rgba(255, 107, 107, 0.15);
+    }
+    .comparison-header .col.saarthi {
+        background: rgba(0, 196, 125, 0.05); border: 1px solid rgba(0, 196, 125, 0.15);
+    }
+    .comparison-header .col h3 {
+        font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.05rem;
+    }
+    .comparison-header .col.agency h3 { color: #FF6B6B; }
+    .comparison-header .col.saarthi h3 { color: #00C47D; }
+    .comparison-label {
+        font-family: 'Sora', sans-serif; font-size: 0.66rem; font-weight: 700;
+        letter-spacing: 2px; text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.22); margin: 18px 0 6px;
+        text-align: center;
+    }
+    .comparison-row {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+        margin-bottom: 4px;
+    }
+    .comparison-row .cell {
+        padding: 16px 20px; border-radius: 10px; font-size: 0.87rem;
+        line-height: 1.5;
+    }
+    .comparison-row .cell.agency {
+        background: rgba(255, 107, 107, 0.03); border: 1px solid rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.38);
+    }
+    .comparison-row .cell.saarthi {
+        background: rgba(0, 196, 125, 0.03); border: 1px solid rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.85); font-weight: 500;
+    }
+
+    /* HOW IT WORKS */
+    .how-section { background: #050505; }
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; position: relative; }
+    .steps-grid::before {
+        content: ''; position: absolute; top: 48px; left: 12%; right: 12%;
+        height: 1px; background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.3), transparent);
+        z-index: 0;
+    }
+    .step-card { position: relative; z-index: 1; }
+    .step-num {
+        width: 96px; height: 96px; border-radius: 50%;
+        background: #0A0A0A; border: 2px solid rgba(255, 255, 255, 0.08);
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        margin: 0 auto 24px; transition: all 0.3s;
+    }
+    .step-num .label {
+        font-family: 'Sora', sans-serif; font-weight: 800; font-size: 1.6rem;
+        color: white;
+    }
+    .step-num .sub {
+        font-size: 0.6rem; font-weight: 600; letter-spacing: 1.5px;
+        text-transform: uppercase; color: #71717A; margin-top: 2px;
+    }
+    .step-card:hover .step-num {
+        background: linear-gradient(135deg, #00D4FF, #8B5CF6);
+        border-color: transparent;
+    }
+    .step-card:hover .step-num .label { color: #050505; }
+    .step-card:hover .step-num .sub { color: rgba(5, 5, 5, 0.6); }
+    .step-card h3 {
+        font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1rem;
+        color: white; text-align: center; margin-bottom: 10px;
+    }
+    .step-card p { font-size: 0.86rem; color: #71717A; line-height: 1.65; text-align: center; }
+
+    /* NEW COMPARISON CENTERED LAYOUT */
+    .comparison-center {
+        display: flex; align-items: flex-start; justify-content: center;
+        gap: 32px; max-width: 900px; margin: 48px auto 0; position: relative;
+    }
+    .comp-col {
+        flex: 1; max-width: 380px; display: flex; flex-direction: column; gap: 8px;
+    }
+    .comp-col-header {
+        display: flex; align-items: center; gap: 12px; padding: 20px 24px;
+        border-radius: 16px; margin-bottom: 12px;
+    }
+    .comp-col-header h3 {
+        font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.1rem;
+        color: white; margin: 0; flex: 1; text-align: left;
+    }
+    .comp-col-icon { font-size: 1.6rem; }
+    .comp-col-tag {
+        font-family: 'Sora', sans-serif; font-size: 0.65rem; font-weight: 700;
+        letter-spacing: 1px; text-transform: uppercase; padding: 4px 10px;
+        border-radius: 6px; background: rgba(255,107,107,0.15); color: #FF6B6B;
+    }
+    .comp-col-tag.saarthi-tag {
+        background: rgba(0,196,125,0.15); color: #00C47D;
+    }
+    .agency-header {
+        background: rgba(255,107,107,0.05); border: 1px solid rgba(255,107,107,0.15);
+    }
+    .saarthi-header {
+        background: rgba(0,196,125,0.05); border: 1px solid rgba(0,196,125,0.15);
+    }
+    .comp-item {
+        padding: 16px 20px; border-radius: 12px;
+        background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+        text-align: left; transition: all 0.3s;
+    }
+    .comp-item:hover { background: rgba(255,255,255,0.04); }
+    .comp-item .comp-label {
+        font-family: 'Sora', sans-serif; font-size: 0.7rem; font-weight: 700;
+        letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.3);
+        display: block; margin-bottom: 6px;
+    }
+    .comp-item p {
+        font-size: 0.88rem; color: rgba(255,255,255,0.45); line-height: 1.5;
+        margin: 0;
+    }
+    .saarthi-item {
+        background: rgba(0,196,125,0.03); border-color: rgba(0,196,125,0.1);
+    }
+    .saarthi-item:hover { background: rgba(0,196,125,0.06); }
+    .saarthi-item p { color: rgba(255,255,255,0.85); font-weight: 500; }
+    .saarthi-item .comp-label { color: rgba(0,196,125,0.6); }
+    .comp-vs {
+        display: flex; align-items: flex-start; padding-top: 80px;
+        flex-shrink: 0;
+    }
+    .comp-vs-circle {
+        width: 48px; height: 48px; border-radius: 50%;
+        background: linear-gradient(135deg, #00D4FF, #8B5CF6);
+        display: flex; align-items: center; justify-content: center;
+        font-family: 'Sora', sans-serif; font-weight: 800; font-size: 0.75rem;
+        color: #050505; letter-spacing: 1px;
+        box-shadow: 0 0 20px rgba(0,212,255,0.3);
+    }
+
+    /* COMPARISON RESPONSIVE */
+    @media (max-width: 768px) {
+        .comparison-center { flex-direction: column; align-items: center; gap: 16px; }
+        .comp-vs { padding-top: 0; }
+        .comp-col { max-width: 100%; width: 100%; }
+    }
+
+    /* INTEGRATIONS */
+    .integrations-section { background: #0A0A0A; text-align: center; }
+    .integrations-section h2 { margin: 0 auto 12px; }
+    .integrations-section .section-sub { margin: 0 auto; text-align: center; }
+    .integration-badges {
+        display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+        margin-top: 48px;
+    }
+    .integration-badge {
+        background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px; padding: 22px 34px; transition: all 0.3s;
+        min-width: 145px;
+    }
+    .integration-badge:hover {
+        background: rgba(139, 92, 246, 0.06); border-color: rgba(139, 92, 246, 0.25);
+        transform: translateY(-4px);
+    }
+    .integration-badge .icon { font-size: 2rem; margin-bottom: 8px; display: block; }
+    .integration-badge .name {
+        font-family: 'Sora', sans-serif; font-weight: 600; font-size: 0.85rem; color: white;
+    }
+    .integration-note {
+        margin-top: 32px; font-size: 0.8rem; color: rgba(255, 255, 255, 0.25);
+        font-style: italic;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+        background: #050505; text-align: center;
+        padding: 120px 80px;
+    }
+    .cta-section h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 16px; }
+    .cta-section p {
+        font-size: 1.08rem; color: #71717A; max-width: 560px;
+        margin: 0 auto 44px; line-height: 1.7;
+    }
+    .cta-section .btn-primary { font-size: 1.05rem; padding: 18px 40px; }
+
+    /* FOOTER */
+    footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 32px 80px; display: flex; align-items: center;
+        justify-content: space-between; background: #0A0A0A;
+    }
+    footer .logo { font-size: 1rem; }
+    .footer-links { display: flex; gap: 30px; }
+    .footer-links a {
+        font-size: 0.8rem; color: #71717A; text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: white; }
+    .footer-copy { font-size: 0.75rem; color: #71717A; opacity: 0.6; }
+
+    /* FADE-IN ANIMATIONS */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in { animation: fadeIn 0.8s ease forwards; opacity: 0; }
+    .delay-1 { animation-delay: 0.15s; }
+    .delay-2 { animation-delay: 0.3s; }
+    .delay-3 { animation-delay: 0.5s; }
+    .delay-4 { animation-delay: 0.7s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+        section { padding: 100px 48px; }
+        .hero { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+        .why-grid { grid-template-columns: repeat(2, 1fr); }
+        .steps-grid { grid-template-columns: repeat(2, 1fr); }
+        .steps-grid::before { display: none; }
+        .cta-section { padding: 100px 48px; }
+    }
+    @media (max-width: 768px) {
+        nav { padding: 16px 20px; }
+        .hero { padding: 120px 24px 80px; min-height: auto; grid-template-columns: 1fr; gap: 2rem; }
+        .hero-right { justify-self: center; max-width: 100%; }
+        .hero h1 { font-size: 2rem; }
+        .hero-sub { font-size: 1rem; }
+        section { padding: 80px 24px; }
+        h2 { font-size: 1.8rem; }
+        .section-header { margin-bottom: 36px; }
+        .why-grid { grid-template-columns: 1fr; gap: 16px; }
+        .comparison-header, .comparison-row { grid-template-columns: 1fr; }
+        .comparison-label { margin: 14px 0 4px; }
+        .steps-grid { grid-template-columns: 1fr; gap: 32px; }
+        .integration-badges { gap: 12px; }
+        .integration-badge { padding: 18px 26px; min-width: 125px; }
+        .cta-section { padding: 80px 24px; }
+        footer { padding: 24px 24px; flex-direction: column; gap: 16px; text-align: center; }
+        .footer-links { flex-wrap: wrap; justify-content: center; }
+        .hero-ctas { flex-direction: column; }
+        .btn-primary, .btn-secondary { width: 100%; text-align: center; }
+        .robot-wrapper { margin-bottom: 36px; }
+        .robot { width: 130px; height: 170px; }
+        .r-head { width: 74px; height: 56px; }
+        .r-visor { width: 60px; height: 30px; }
+        .r-eye { width: 12px; height: 12px; }
+        .r-eye.l { left: 10px; }
+        .r-eye.r { right: 10px; }
+        .r-body { width: 92px; height: 64px; top: 62px; }
+        .r-arm { top: 68px; }
+    }
+    @media (max-width: 480px) {
+        .hero h1 { font-size: 1.7rem; }
+        .step-num { width: 72px; height: 72px; }
+        .step-num .label { font-size: 1.2rem; }
+        section { padding: 64px 18px; }
+    }
+
+    html, body { max-width: 100vw; overflow-x: hidden; }
+    * { max-width: 100%; box-sizing: border-box; }
+</style>
+</head>
+<body class="bg-[#050505]">
+
+<!-- NAV -->
+<nav>
+    <a href="index.html" class="logo"><span>AIMANTRAAS</span></a>
+    <div class="nav-links" id="navLinks">
+        <a href="for-business.html" class="cta-nav" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: white; margin-right: 10px;">For Business</a>
+        <a href="#contact" class="cta-nav">Book a Demo →</a>
+    </div>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" style="display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;">☰</button>
+</nav>
+
+<style>
+    .mobile-menu-btn { display: block !important; }
+    @media (min-width: 769px) { .mobile-menu-btn { display: none !important; } }
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none; position: absolute; top: 100%; left: 0; right: 0;
+            background: rgba(10,10,15,0.98); padding: 20px; flex-direction: column;
+            gap: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .nav-links.active { display: flex; }
+        .nav-links a { width: 100%; text-align: center; }
+    }
+</style>
+<script>function toggleMobileMenu() { document.getElementById('navLinks').classList.toggle('active'); }</script>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-left">
+        <div class="hero-badge animate-fade-in" style="margin-top: -20px;">Launching SAARTHI</div>
+    
+        <h1 class="animate-fade-in delay-1">
+            Stop hunting leads.<br>
+            <em>Start closing deals.</em>
+        </h1>
+        <p class="hero-sub animate-fade-in delay-2">
+            <strong>SAARTHI</strong> is the autonomous outreach system that finds, writes, follows up, and books meetings for you. Built for B2B teams that need consistent pipeline without more headcount.
+        </p>
+        <div class="hero-ctas animate-fade-in delay-3">
+            <a href="#contact" class="btn-primary">Book a Demo →</a>
+            <a href="#how-it-works" class="btn-secondary">See How It Works</a>
+        </div>
+    </div>
+    
+    <div class="hero-right">
+        <img src="db2.png" alt="SAARTHI Dashboard">
+
+    </div>
+</section>
+
+<!-- WHY SAARTHI WINS -->
+<section class="why-section">
+    <div class="section-header">
+        <p class="eyebrow">Why SAARTHI Wins</p>
+        <h2>Built different. Delivers different.</h2>
+    </div>
+    <div class="why-grid">
+        <div class="why-card">
+            <div class="why-icon">🔄</div>
+            <h3>Self-Optimizing Playbooks</h3>
+            <p>Tuned to replies, not opens. SAARTHI learns from real engagement signals and continuously refines its outreach strategy.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon">🎯</div>
+            <h3>Dynamic Personalization at Scale</h3>
+            <p>Live firmographic signals ensure every message feels hand-crafted — because it is, just not by a human.</p>
+        </div>
+        <div class="why-card">
+            <div class="why-icon">🔁</div>
+            <h3>Full-Loop Automation</h3>
+            <p>Sourcing → Sequencing → Scheduling → CRM Sync. The entire pipeline runs itself — from first touch to booked meeting.</p>
+        </div>
+    </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="comparison-section" style="text-align: center;">
+    <div class="section-header" style="text-align: center;">
+        <p class="eyebrow" style="justify-content: center;">Outreach Agency vs SAARTHI</p>
+        <h2 style="margin: 0 auto 12px;">Systemized &gt; Manual</h2>
+        <p class="section-sub" style="margin: 0 auto; text-align: center;">See why the old way can't compete.</p>
+    </div>
+
+    <div class="comparison-center">
+        <div class="comp-col comp-agency">
+            <div class="comp-col-header agency-header">
+                <span class="comp-col-icon">🏢</span>
+                <h3>Agency</h3>
+                <span class="comp-col-tag">Old Way</span>
+            </div>
+            <div class="comp-item"><span class="comp-label">Lead Sourcing</span><p>Manual list-building; variable quality</p></div>
+            <div class="comp-item"><span class="comp-label">Copywriting</span><p>Copy depends on individual writers</p></div>
+            <div class="comp-item"><span class="comp-label">Deliverability</span><p>Hit-or-miss inbox placement</p></div>
+            <div class="comp-item"><span class="comp-label">Follow-ups</span><p>Follow-up inconsistency across reps</p></div>
+            <div class="comp-item"><span class="comp-label">Ownership</span><p>Dependent on agency's team</p></div>
+            <div class="comp-item"><span class="comp-label">Reporting</span><p>Reporting arrives weekly</p></div>
+        </div>
+
+        <div class="comp-vs">
+            <div class="comp-vs-circle">VS</div>
+        </div>
+
+        <div class="comp-col comp-saarthi-col">
+            <div class="comp-col-header saarthi-header">
+                <span class="comp-col-icon">🤖</span>
+                <h3>SAARTHI</h3>
+                <span class="comp-col-tag saarthi-tag">AI-Powered</span>
+            </div>
+            <div class="comp-item saarthi-item"><span class="comp-label">Lead Sourcing</span><p>Personalised for every single prospect.</p></div>
+            <div class="comp-item saarthi-item"><span class="comp-label">Copywriting</span><p>Persona-aware messaging at scale.</p></div>
+            <div class="comp-item saarthi-item"><span class="comp-label">Deliverability</span><p>Inbox delivered. Every time. No spam.</p></div>
+            <div class="comp-item saarthi-item"><span class="comp-label">Follow-ups</span><p>Adaptive sequencing that never drops the ball.</p></div>
+            <div class="comp-item saarthi-item"><span class="comp-label">Ownership</span><p>Your system. Your pipeline. Always.</p></div>
+            <div class="comp-item saarthi-item"><span class="comp-label">Reporting</span><p>Runs every day. Never stops. Never forgets.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW SAARTHI WORKS -->
+<section class="how-section" id="how-it-works">
+    <div class="section-header">
+        <p class="eyebrow">How SAARTHI Works</p>
+        <h2>Your Ultimate Lead Chariot</h2>
+        <p class="section-sub" style="max-width: 600px;">Each stage is measurable, orchestrated, and can keep a human in the loop for approvals or let the system run autonomously.</p>
+        <p style="font-size: 0.82rem; color: rgba(255,255,255,0.2); margin-top: 10px; font-style: italic;">Smooth, observable, auditable</p>
+    </div>
+
+    <div class="steps-grid">
+        <div class="step-card">
+            <div class="step-num">
+                <span class="label">01</span>
+                <span class="sub">Source</span>
+            </div>
+            <h3>Finds ideal prospects</h3>
+            <p>Precision ICP filters, firmographics, technographics, and buying intent.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">
+                <span class="label">02</span>
+                <span class="sub">Write</span>
+            </div>
+            <h3>Writes the right message</h3>
+            <p>Persona-aware outreach with tone, proof, and offer matched to the account.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">
+                <span class="label">03</span>
+                <span class="sub">Follow</span>
+            </div>
+            <h3>Follows up automatically</h3>
+            <p>Adaptive sequencing across email, LinkedIn, and SMS with smart fallbacks.</p>
+        </div>
+        <div class="step-card">
+            <div class="step-num">
+                <span class="label">04</span>
+                <span class="sub">Book</span>
+            </div>
+            <h3>Books the meeting</h3>
+            <p>Calendar routing, conflict checks, and instant scheduling handoff to sales.</p>
+        </div>
+    </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section class="integrations-section">
+    <div class="section-header">
+        <p class="eyebrow" style="justify-content: center;">Custom Enterprise Integrations</p>
+        <h2>Connects with your stack</h2>
+        <p class="section-sub">
+            We provide custom integration solutions for enterprises — including CRM sync, lead routing automation, custom workflows, API extensions, and deep integration with your existing tools.
+        </p>
+    </div>
+
+    <div class="integration-badges">
+        <div class="integration-badge">
+            <span class="icon">📧</span>
+            <span class="name">HubSpot</span>
+        </div>
+        <div class="integration-badge">
+            <span class="icon">⚡️</span>
+            <span class="name">Salesforce</span>
+        </div>
+        <div class="integration-badge">
+            <span class="icon">🔴</span>
+            <span class="name">Zoho</span>
+        </div>
+        <div class="integration-badge">
+            <span class="icon">💬</span>
+            <span class="name">Slack</span>
+        </div>
+        <div class="integration-badge">
+            <span class="icon">📱</span>
+            <span class="name">WhatsApp</span>
+        </div>
+        <div class="integration-badge">
+            <span class="icon">🔌</span>
+            <span class="name">Custom API</span>
+        </div>
+    </div>
+    <p class="integration-note">Secure &bull; Composable &bull; Supported</p>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+    <h2>Ready to let SAARTHI<br><em class="gradient-text">run your pipeline?</em></h2>
+    <p>Book a 30-minute demo. We'll show you SAARTHI sourcing, writing, and booking live — using your ICP and your market.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf0OVcfZs1m0x2u0yjCNqMZYWQVY_2gSgmvsGJuEmuNDs7vJg/viewform?usp=dialog" target="_blank" class="btn-primary">Book a Demo →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <a href="index.html" class="logo">AI <span>Mantraas</span></a>
+    <div class="footer-links">
+        <a href="for-business.html">For Business</a>
+        <a href="saarthi.html">SAARTHI</a>
+        <a href="index.html#contact">Contact</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 AI Mantraas. All rights reserved.</span>
+</footer>
+
+</body>
+</html>

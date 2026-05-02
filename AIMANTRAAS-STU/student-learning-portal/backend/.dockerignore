@@ -1,0 +1,42 @@
+# Docker Ignore
+# =============
+# Files to exclude from Docker build
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Environment files
+.env
+.env.local
+*.md
+
+# Local data (will be mounted in container)
+local-data/*.json
+
+# OS
+.DS_Store
+Thumbs.db
