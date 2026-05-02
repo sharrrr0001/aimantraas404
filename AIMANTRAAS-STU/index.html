@@ -1621,7 +1621,7 @@
             </nav>
             
             <!-- Mobile Menu Button -->
-            <button id="mobileMenuBtn" class="lg:hidden p-2 text-white hover:text-cyan transition-colors" aria-label="Toggle menu" onclick="document.getElementById(&#39;mobileMenu&#39;).classList.toggle(&#39;hidden&#39;)">
+<button id="mobileMenuBtn" class="lg:hidden p-2 text-white hover:text-cyan transition-colors" aria-label="Toggle menu" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
@@ -1648,7 +1648,15 @@
         </div>
     </header>
 
-    <!-- Popup Modal -->
+<!-- Popup Modal -->
+    <div id="popup" class="popup-overlay">
+        <div class="bg-[#0A0A0F] rounded-2xl max-w-lg w-full p-8 relative" style="background: #0A0A0F; border: 1px solid rgba(255,255,255,0.1);">
+            <button id="popupClose" class="absolute top-4 right-4 text-white/60 hover:text-white text-2xl">&times;</button>
+            <h2 class="font-display text-2xl font-bold text-white mb-4">Welcome to AI Mantraas!</h2>
+            <p class="text-slate-400 mb-6">Master AI automation and transform your career. Join our comprehensive program to learn AI agent building.</p>
+            <button id="learnMoreBtn" class="bg-cyan text-black font-semibold px-6 py-3 rounded-xl">Learn More</button>
+        </div>
+    </div>
       
     <!-- Hero Section - Two Column Layout -->
     <section class="relative min-h-screen flex items-center">

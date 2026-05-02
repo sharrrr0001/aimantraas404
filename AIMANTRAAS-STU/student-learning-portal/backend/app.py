@@ -13,7 +13,7 @@ from datetime import datetime
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from dotenv import load_dotenv
-from google_sheets import get_sheets_manager, initialize_sheets
+from google_sheets import initialize_sheets
 
 # Try to import whitenoise for static file serving
 try:
@@ -112,7 +112,6 @@ def save_to_google_sheets(sheet_name, data, is_list=False):
     Returns:
         True if successful, False otherwise
     """
-    global sheets_manager
     
     if sheets_manager is None or not sheets_manager.is_connected():
         logger.warning("Google Sheets not connected, skipping sheet update")
@@ -552,7 +551,6 @@ def status():
 @app.route('/api/sync', methods=['POST'])
 def sync_to_google_sheets():
     """Sync all local data to Google Sheets."""
-    global sheets_manager
     
     if sheets_manager is None or not sheets_manager.is_connected():
         return jsonify({
@@ -591,7 +589,6 @@ def sync_to_google_sheets():
 
 def initialize_app():
     """Initialize the application."""
-    global sheets_manager
     
     # Try to initialize Google Sheets
     try:
@@ -647,3 +644,5 @@ def create_app():
 if __name__ == '__main__':
     initialize_app()
     app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)), debug=DEBUG_MODE)
+
+

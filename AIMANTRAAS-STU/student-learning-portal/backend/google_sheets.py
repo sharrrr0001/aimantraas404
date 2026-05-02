@@ -6,9 +6,9 @@ It provides methods to read from and write to Google Sheets.
 """
 
 import os
-import json
+
 import logging
-from datetime import datetime
+
 from dotenv import load_dotenv
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
@@ -175,7 +175,7 @@ class GoogleSheetsManager:
                 'majorDimension': 'ROWS'
             }
             
-            result = self.service.spreadsheets().values().append(
+            self.service.spreadsheets().values().append(
                 spreadsheetId=self.spreadsheet_id,
                 range=range_name,
                 valueInputOption='USER_ENTERED',
@@ -276,3 +276,7 @@ def get_sheets_manager():
     if sheets_manager is None:
         initialize_sheets()
     return sheets_manager
+
+
+
+

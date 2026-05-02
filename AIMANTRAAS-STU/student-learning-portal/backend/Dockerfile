@@ -51,7 +51,7 @@ ENV FLASK_APP=app.py
 ENV DEBUG_MODE=False
 
 # Expose port
-EXPOSE $PORT
+EXPOSE 5000
 
-# Run with Gunicorn (use dynamic port for cloud platforms)
-CMD ["gunicorn", "--bind", ":$PORT", "--workers", "4", "--timeout", "120", "wsgi:application"]
+# Run with Gunicorn (bind to 0.0.0.0 for container networking)
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "--workers", "4", "--timeout", "120", "wsgi:application"]
